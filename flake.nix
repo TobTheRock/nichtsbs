@@ -17,6 +17,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          ./yubikey.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

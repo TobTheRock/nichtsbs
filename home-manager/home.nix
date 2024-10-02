@@ -5,7 +5,10 @@
   home = {
    username = "tobi";
    homeDirectory = "/home/tobi";
+   # use wayland with electron apps
+   sessionVariables.NIXOS_OZONE_WL = "1";
   };
+  programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
@@ -27,10 +30,11 @@
  #    IdentitiesOnly yes
  #  '';
   };
-  
+ 
+  programs.kitty.enable = true;
+
+  wayland.windowManager.hyprland.enable = true;
 
   home.stateVersion = "24.05";
-
-  programs.home-manager.enable = true;
 }
 

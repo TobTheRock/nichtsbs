@@ -72,8 +72,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ 
-    libfido2
-    pam_u2f
     pinentry-curses
     sbctl
     systemd
@@ -92,17 +90,10 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # u2f PAM (e.g. Yubikey to sudo)
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
 
   # Enable the OpenSSH daemon.
   services.pcscd.enable = true;
   services.openssh.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -116,6 +107,7 @@
     };
     gc = {
       automatic = true;
+
       dates = "daily";
       options = "--delete-older-than +5";
     }; 
