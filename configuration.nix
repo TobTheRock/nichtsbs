@@ -14,6 +14,7 @@
       ./modules/yubikey.nix
 
       ./users.nix
+      ./variables.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
