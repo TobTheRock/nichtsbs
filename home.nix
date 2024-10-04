@@ -2,7 +2,7 @@
 
 {
   imports = [
-	    ./variables.nix
+    ./variables.nix
     ./home/system/hyprland
   ];
   

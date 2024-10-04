@@ -9,8 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ./modules/amd.nix
       ./modules/audio.nix
       ./modules/fonts.nix
+      ./modules/tuigreet.nix
+      ./modules/xorg.nix
       ./modules/yubikey.nix
 
       ./users.nix
