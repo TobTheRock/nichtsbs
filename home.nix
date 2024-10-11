@@ -7,13 +7,14 @@
   ];
   
   home = {
-   username = "tobi";
-   homeDirectory = "/home/tobi";
-   # use wayland with electron apps
-   sessionVariables.NIXOS_OZONE_WL = "1";
+   inherit (config.var) username;
+   inherit (config.var) homeDirectory;
+   #sessionVariables.NIXOS_OZONE_WL = "1";
+   file."wallpapers" = {
+     recursive = true;
+     source = ./home/wallpapers;
+   };
   };
-
-  programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
@@ -37,9 +38,10 @@
   };
  
   programs.kitty.enable = true;
-
-  wayland.windowManager.hyprland.enable = true;
+  
 
   home.stateVersion = "24.05";
+
+  programs.home-manager.enable = true;
 }
 

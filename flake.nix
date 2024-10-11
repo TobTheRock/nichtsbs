@@ -11,15 +11,16 @@
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, ... }: {
     nixosConfigurations = {
       hostname = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -30,16 +31,8 @@
           }
           ./configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.tobi = import ./home.nix;
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-	    
-          }
-
+          stylix.nixosModules.stylix
           lanzaboote.nixosModules.lanzaboote
-
           ( { pkgs, lib, ...}: {
             environment.systemPackages = [
               pkgs.sbctl

@@ -12,6 +12,7 @@
       ./modules/amd.nix
       ./modules/audio.nix
       ./modules/fonts.nix
+      ./modules/home-manager.nix
       ./modules/tuigreet.nix
       ./modules/xorg.nix
       ./modules/yubikey.nix
@@ -19,6 +20,8 @@
       ./users.nix
       ./variables.nix
     ];
+
+  home-manager.users."${config.var.username}" = import ./home.nix;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -76,9 +79,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [ 
     pinentry-curses
+    ripgrep
     sbctl
     systemd
     vim 
+    tmux
     wget
   ];
 
