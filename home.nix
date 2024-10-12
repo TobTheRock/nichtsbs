@@ -15,6 +15,7 @@
    inherit (config.var) username;
    inherit (config.var) homeDirectory;
    #sessionVariables.NIXOS_OZONE_WL = "1";
+   file."profile_picture.png" = { source = ./profile_picture.png; };
   };
 
   programs.git = {
@@ -27,6 +28,7 @@
       pull.rebase = true;
     };
   };
+  
 
   
   programs.ssh = {

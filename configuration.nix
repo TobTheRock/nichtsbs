@@ -11,6 +11,8 @@
 
       ./modules/amd.nix
       ./modules/audio.nix
+      ./modules/auto-upgrade.nix
+      ./modules/bluetooth.nix
       ./modules/fonts.nix
       ./modules/home-manager.nix
       ./modules/nix.nix
@@ -18,7 +20,7 @@
       ./modules/xorg.nix
       ./modules/yubikey.nix
 
-      ./themes/nixy.nix
+      ./themes/nichts.nix
 
       ./users.nix
       ./variables.nix
