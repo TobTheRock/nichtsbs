@@ -17,7 +17,16 @@
       inputs.hyprland.follows = "hyprland";
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
+    # FIXME
+#    stylix.url = "github:danth/stylix/32dba263f63f830d2f11fb079f8796cdec73d3ce";
     stylix.url = "github:danth/stylix";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    nixy-wallpapers = {
+      url = "github:anotherhadi/nixy-wallpapers";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, ... }: {

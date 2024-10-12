@@ -1,55 +1,67 @@
-{
-  wallpaper = "the-road-black.png";
+{ pkgs, inputs, ... }: {
+  stylix = {
+    enable = true;
 
-  font = "SFProDisplay Nerd Font";
-  font-mono = "FiraCode Nerd Font Mono";
-  font-size = 14;
+    # Edited catppuccin
+    base16Scheme = {
+      base00 = "0b0b0b"; # Default Background
+      base01 =
+        "1b1b1b"; # Lighter Background (Used for status bars, line number and folding marks)
+      base02 = "2b2b2b"; # Selection Background
+      base03 = "45475a"; # Comments, Invisibles, Line Highlighting
+      base04 = "585b70"; # Dark Foreground (Used for status bars)
+      base05 = "fcfcfc"; # Default Foreground, Caret, Delimiters, Operators
+      base06 = "f5e0dc"; # Light Foreground (Not often used)
+      base07 = "b4befe"; # Light Background (Not often used)
+      base08 =
+        "f38ba8"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+      base09 =
+        "fab387"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+      base0A = "f9e2af"; # Classes, Markup Bold, Search Text Background
+      base0B = "a6e3a1"; # Strings, Inherited Class, Markup Code, Diff Inserted
+      base0C =
+        "94e2d5"; # Support, Regular Expressions, Escape Characters, Markup Quotes
+      base0D =
+        "A594FD"; # Functions, Methods, Attribute IDs, Headings, Accent color
+      base0E =
+        "cba6f7"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
+      base0F =
+        "f2cdcd"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+    };
 
-  rounding = 15;
-  gaps-in = 10;
-  gaps-out = 10 * 2;
-  active-opacity = 1;
-  inactive-opacity = 0.89;
-  blur = true;
-  border-size = 3;
-  animation-speed = "fast"; # "fast" | "medium" | "slow"
-  fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
 
-  bar = {
-    transparent = true;
-    floating = true;
-    font-size = 16;
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        name = "JetBrains Mono Nerd Font";
+      };
+      sansSerif = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
+        name = "SFProDisplay Nerd Font";
+      };
+      serif = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
+        name = "SFProDisplay Nerd Font";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+      sizes = {
+        applications = 13;
+        desktop = 13;
+        popups = 13;
+        terminal = 13;
+      };
+    };
+
+    polarity = "dark";
+    image = inputs.nixy-wallpapers + "/wallpapers/black-oil.png";
   };
 
-  colors = {
-    c0 = "1e1e2e"; # black
-    c1 = "f38ba8"; # red
-    c2 = "a6e3a1"; # green
-    c3 = "fab387"; # yellow
-    c4 = "89b4fa"; # blue
-    c5 = "A594FD"; # magenta
-    c6 = "74c7ec"; # cyan
-    c7 = "cdd6f4"; # white
-    c8 = "313244"; # bright black
-    c9 = "eba0ac"; # bright red
-    c10 = "94e2d5"; # bright green
-    c11 = "f9e2af"; # bright yellow
-    c12 = "b4befe"; # bright blue
-    c13 = "f5c2e7"; # bright magenta
-    c14 = "94e2d5"; # bright cyan
-    c15 = "bac2de"; # bright white
-
-    bg = "0B0B0B";
-    fg = "EAF0F5";
-    bgalt = "121212";
-    fgalt = "EAF0F5";
-
-    accent = "A594FD";
-    accentFg = "0B0B0B";
-    accentalt = "917FF0";
-
-    # Should make those automtic
-    accentName = "magenta";
-    accentNumber = "5";
-  };
 }

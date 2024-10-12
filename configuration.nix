@@ -18,6 +18,8 @@
       ./modules/xorg.nix
       ./modules/yubikey.nix
 
+      ./themes/nixy.nix
+
       ./users.nix
       ./variables.nix
     ];

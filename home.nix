@@ -3,17 +3,18 @@
 {
   imports = [
     ./variables.nix
+    ./home/system/hypridle
     ./home/system/hyprland
+    ./home/system/hyprlock
+    ./home/system/hyprpanel
+    ./home/system/hyprpaper
+    ./home/system/hyprswitch
   ];
   
   home = {
    inherit (config.var) username;
    inherit (config.var) homeDirectory;
    #sessionVariables.NIXOS_OZONE_WL = "1";
-   file."wallpapers" = {
-     recursive = true;
-     source = ./home/wallpapers;
-   };
   };
 
   programs.git = {

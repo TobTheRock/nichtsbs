@@ -24,21 +24,22 @@
     autoUpgrade = true;
     autoGarbageCollector = true;
 
-    # SOPS
-    # Sops is a tool to store secrets in git repositories encrypted with GPG.
-    # change the sops configuration if you want to enable that:
-    sops = true;
+    theme = {
+      rounding = 15;
+      gaps-in = 10;
+      gaps-out = 10 * 2;
+      active-opacity = 1;
+      inactive-opacity = 0.89;
+      blur = true;
+      border-size = 3;
+      animation-speed = "medium"; # "fast" | "medium" | "slow"
+      fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
 
-    # Enable tailscale
-    tailscale = true;
-
-    # USBGuard
-    # If usbguard enabled: set yours pref USB devices (change {id} to your trusted USB device), use `lsusb` command (from usbutils package) to get list 
-    # of all connected USB devices including integrated devices like camera, bluetooth, wifi, etc. with their IDs or just disable `usbguard`
-    # allow id {id} # device 1...
-    usbguard = false;
-    usbguardRules = "";
-
-    theme = import ./themes/nixy.nix; # select your theme here
+      bar = {
+        transparent = true;
+        floating = true;
+      };
+    };
   };
+
 }
