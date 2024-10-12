@@ -13,6 +13,7 @@
       ./modules/audio.nix
       ./modules/fonts.nix
       ./modules/home-manager.nix
+      ./modules/nix.nix
       ./modules/tuigreet.nix
       ./modules/xorg.nix
       ./modules/yubikey.nix
@@ -107,26 +108,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes"];
-    };
-    gc = {
-      automatic = true;
-
-      dates = "daily";
-      options = "--delete-older-than +5";
-    }; 
-  };
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # SYSTem.copySystemConfiguration = true;
-  
-  system.autoUpgrade.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
