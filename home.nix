@@ -1,8 +1,15 @@
 { config, pkgs, ... }: 
-
 {
   imports = [
     ./variables.nix
+
+    ./home/programs/kitty
+    ./home/programs/git
+    ./home/programs/nvim
+    ./home/programs/spicetify
+    ./home/programs/ssh
+    ./home/programs/thunar
+
     ./home/system/hypridle
     ./home/system/hyprland
     ./home/system/hyprlock
@@ -17,31 +24,8 @@
    #sessionVariables.NIXOS_OZONE_WL = "1";
    file."profile_picture.png" = { source = ./profile_picture.png; };
   };
-
-  programs.git = {
-    enable = true;
-
-    userName = "Tobias Waurick";
-    userEmail = "tobtherock@proton.me";
-    extraConfig = {
-      core.editor = "vim";
-      pull.rebase = true;
-    };
-  };
-  
-
-  
-  programs.ssh = {
-   enable = true;
-   addKeysToAgent = "yes";
- #  extraConfig = ''
- #    IdentityAgent none
- #    IdentitiesOnly yes
- #  '';
-  };
  
   programs.kitty.enable = true;
-
   home.stateVersion = "24.05";
 
   programs.home-manager.enable = true;

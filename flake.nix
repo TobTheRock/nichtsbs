@@ -7,10 +7,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    plugin-markdown = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
+      flake = false;
+    };
+
     hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -18,9 +32,6 @@
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
-
-    # FIXME
-#    stylix.url = "github:danth/stylix/32dba263f63f830d2f11fb079f8796cdec73d3ce";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixy-wallpapers = {
