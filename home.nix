@@ -10,6 +10,8 @@
     ./home/programs/ssh
     ./home/programs/thunar
 
+    ./home/scripts
+
     ./home/system/hypridle
     ./home/system/hyprland
     ./home/system/hyprlock
