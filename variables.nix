@@ -7,7 +7,7 @@
     homeDirectory = "/home/" + config.var.username;
     configDirectory = config.var.homeDirectory + "/.config/nixos";
 
-    keyboardLayout = "en";
+    keyboardLayout = "us";
 
     location = "Berlin";
     timeZone = "Europe/Berlin";
@@ -16,7 +16,7 @@
 
     git = {
       username = "Tobias Waurick";
-      email = "tobtherok@proton.me";
+      email = "tobtherock@proton.me";
     };
     
     # todo actually use belows settings

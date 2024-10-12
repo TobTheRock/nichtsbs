@@ -45,8 +45,6 @@ in {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
-      exec-once = [ "${pkgs.bitwarden}/bin/bitwarden" ];
-
       monitor = [
         "eDP-2,highres,0x0,1"
         "HDMI-A-1,3440x1440@99.98,auto,1"
@@ -79,7 +77,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
+   #     "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
