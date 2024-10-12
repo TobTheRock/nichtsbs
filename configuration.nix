@@ -14,6 +14,7 @@
       ./modules/auto-upgrade.nix
       ./modules/bluetooth.nix
       ./modules/fonts.nix
+      ./modules/lanzaboote.nix
       ./modules/home-manager.nix
       ./modules/nix.nix
       ./modules/tuigreet.nix
