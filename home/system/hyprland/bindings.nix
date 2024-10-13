@@ -54,6 +54,7 @@
       ",XF86AudioLowerVolume, exec, sound-down" # Sound Down
       ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
       ",XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
+      ",XF86AudioMicMute, exec, mic-toggle"
     ];
 
   };

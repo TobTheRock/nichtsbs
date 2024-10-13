@@ -33,6 +33,11 @@ let
   sound-toggle = pkgs.writeShellScriptBin "sound-toggle" ''
     sound-change mute
   '';
+
+  mic-toggle = pkgs.writeShellScriptBin "mic-toggle" ''
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  '';
 in {
-  home.packages = [ sound-change sound-up sound-down sound-toggle sound-set ];
+  home.packages =
+    [ sound-change sound-up sound-down sound-toggle sound-set mic-toggle ];
 }

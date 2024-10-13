@@ -133,7 +133,7 @@ in {
           "theme.osd.margins": "0px 0px 0px 10px",
           "theme.osd.muted_zero": true,
           "menus.clock.weather.location": "${location}",
-          "menus.clock.weather.key": "myapikey",
+          "menus.clock.weather.key": "bd3c6cbd41b54e8b950195224241310",
           "menus.clock.weather.unit": "metric",
           "menus.dashboard.powermenu.avatar.image": "/home/${username}/.profile_picture.png",
           "menus.dashboard.powermenu.confirmation": false,
@@ -166,7 +166,7 @@ in {
           "menus.dashboard.directories.right.directory1.label": "󱂵 Home",
           "menus.dashboard.directories.right.directory1.command": "bash -c \"thunar $HOME/\"",
           "menus.dashboard.directories.right.directory2.label": "󰚝 Projects",
-          "menus.dashboard.directories.right.directory2.command": "bash -c \"thunar $HOME/dev/\"",
+          "menus.dashboard.directories.right.directory2.command": "bash -c \"thunar $HOME/Development/\"",
           "menus.dashboard.directories.right.directory3.label": " Config",
           "menus.dashboard.directories.right.directory3.command": "bash -c \"thunar $HOME/.config/\"",
 

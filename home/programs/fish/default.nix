@@ -11,6 +11,10 @@
           inherit (pkgs.fishPlugins.fzf-fish) src;
         }
         {
+          name = "plugin-git";
+          inherit (pkgs.fishPlugins.plugin-git) src;
+        }
+        {
           name = "grc";
           inherit (pkgs.fishPlugins.grc) src;
         }
