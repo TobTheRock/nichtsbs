@@ -1,8 +1,8 @@
 {
   programs.kitty = {
     enable = true;
-    keybindings = {
-    };
+    shellIntegration.enableFishIntegration = true;
+    keybindings = { };
     settings = {
       scrollback_lines = 10000;
       initial_window_width = 1200;

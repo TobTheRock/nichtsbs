@@ -139,8 +139,8 @@ in {
           "menus.dashboard.powermenu.confirmation": false,
 
           "menus.dashboard.shortcuts.left.shortcut1.icon": "",
-          "menus.dashboard.shortcuts.left.shortcut1.command": "qutebrowser",
-          "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Qutebrowser",
+          "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
+          "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
           "menus.dashboard.shortcuts.left.shortcut2.icon": "󰅶",
           "menus.dashboard.shortcuts.left.shortcut2.command": "caffeine",
           "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Caffeine",
