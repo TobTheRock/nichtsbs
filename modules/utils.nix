@@ -26,6 +26,7 @@ in {
   programs.dconf.enable = true;
   services = {
     dbus.enable = true;
+    fwupd.enable = true;
     gvfs.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;

@@ -6,6 +6,7 @@
       "$mod,B, exec, ${pkgs.firefox}/bin/firefox" # Firefox
  #    "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
       "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
+      "$mod,M, exec, ${pkgs.protonmail-desktop}/bin/proton-mail" # Mail
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus

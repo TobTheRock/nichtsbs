@@ -9,7 +9,7 @@
 
     keyboardLayout = "us";
 
-    location = "Berlin";
+    location = "Dresden";
     timeZone = "Europe/Berlin";
     defaultLocale = "en_DK.UTF-8";
     extraLocale = "de_DE.UTF-8";
@@ -18,7 +18,7 @@
       username = "Tobias Waurick";
       email = "tobtherock@proton.me";
     };
-    
+
     # todo actually use belows settings
 
     autoUpgrade = true;
