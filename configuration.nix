@@ -5,27 +5,27 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      ./modules/amd.nix
-      ./modules/audio.nix
-      ./modules/auto-upgrade.nix
-      ./modules/bluetooth.nix
-      ./modules/fonts.nix
-      ./modules/lanzaboote.nix
-      ./modules/home-manager.nix
-      ./modules/nix.nix
-      ./modules/tuigreet.nix
-      ./modules/xorg.nix
-      ./modules/yubikey.nix
+    ./modules/amd.nix
+    ./modules/audio.nix
+    ./modules/auto-upgrade.nix
+    ./modules/bluetooth.nix
+    ./modules/fonts.nix
+    ./modules/lanzaboote.nix
+    ./modules/home-manager.nix
+    ./modules/nix.nix
+    ./modules/utils.nix
+    ./modules/tuigreet.nix
+    ./modules/xorg.nix
+    ./modules/yubikey.nix
 
-      ./themes/nichts.nix
+    ./themes/nichts.nix
 
-      ./users.nix
-      ./variables.nix
-    ];
+    ./users.nix
+    ./variables.nix
+  ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
@@ -38,15 +38,16 @@
       root = {
         device = "/dev/nvme0n1p2";
         preLVM = true;
-        crypttabExtraOpts = ["fido2-device=auto" "token-timeout=3"];
+        crypttabExtraOpts = [ "fido2-device=auto" "token-timeout=3" ];
       };
     };
-  }; 
+  };
 
   networking.hostName = "awesom-o"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
   networking.networkmanager.wifi.powersave = true;
 
   # Set your time zone.
@@ -58,21 +59,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_DK.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-#    keyMap = "us";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
   # mouse support for console
   services.gpm.enable = true;
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -80,16 +68,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     fish
     pinentry-curses
     ripgrep
     sbctl
     systemd
-    vim 
+    vim
     tmux
     wget
   ];
@@ -105,7 +92,6 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
-
 
   # Enable the OpenSSH daemon.
   services.pcscd.enable = true;
@@ -136,4 +122,3 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-
