@@ -4,7 +4,8 @@
       FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
     };
     plugins = {
-      copilot-vim.enable = true;
+      copilot-lua.enable = true;
+      copilot-chat.enable = true;
       flash.enable = true;
       image = {
         enable = true;

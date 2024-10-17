@@ -305,6 +305,14 @@
         action = "<cmd>lua require('dap').toggle_breakpoint()<CR>";
         options.desc = "Toggle breakpoint";
       }
+
+      # Copilot chat
+      {
+        key = "<leader>cc";
+        action = "<cmd>lua require('CopilotChat').open()<cr>";
+        options.desc = "Copilot Chat";
+      }
+
     ];
   };
 }

@@ -28,7 +28,7 @@
       "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
       "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
-      "$shiftMod,S, exec, ${pkgs.firefox}/bin/qutebrowser :open $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
+      "$shiftMod,S, exec, ${pkgs.firefox}/bin/firefox :open $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
       "$mod,F2, exec, night-shift" # Toggle night shift
