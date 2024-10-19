@@ -4,7 +4,9 @@
       FloatBorder.fg = "#${config.lib.stylix.colors.base0D}";
     };
     plugins = {
-      copilot-lua.enable = true;
+      copilot-vim.enable = true;
+      # TODO not working currently
+      #copilot-lua.enable = true;
       copilot-chat.enable = true;
       flash.enable = true;
       image = {
@@ -45,6 +47,14 @@
         };
       };
       treesitter-context.enable = true;
+      toggleterm = {
+        enable = true;
+        settings = {
+          size = 80;
+          open_mapping = "[[<leader>`]]";
+          direction = "vertical";
+        };
+      };
     };
   };
 }

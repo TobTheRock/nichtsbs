@@ -313,6 +313,37 @@
         options.desc = "Copilot Chat";
       }
 
+      # Terminal Mappings
+      # {
+      #   key = "<leader>`";
+      #   action = "<cmd>lua require('ToggleTerm')<cr>";
+      #   options.desc = "Toggle Terminal";
+      # }
+      {
+        key = "<Esc>";
+        mode = "t";
+        action = "<C-\\><C-N>";
+      }
+      {
+        key = "<C-h>";
+        mode = "t";
+        action = "<C-\\><C-N><C-w>h";
+      }
+      {
+        key = "<C-j>";
+        mode = "t";
+        action = "<C-\\><C-N><C-w>j";
+      }
+      {
+        key = "<C-k>";
+        mode = "t";
+        action = "<C-\\><C-N><C-w>k";
+      }
+      {
+        key = "<C-l>";
+        mode = "t";
+        action = "<C-\\><C-N><C-w>l";
+      }
     ];
   };
 }
