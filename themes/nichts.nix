@@ -1,4 +1,10 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  wallpaper = pkgs.fetchurl {
+    url = "https://w.wallhaven.cc/full/o4/wallhaven-o4dgj4.jpg";
+    sha256 = "01ggl0m1n6ar3l9rdc8qmgl6darmfpwhck6njqjczl3f0c3wdj66";
+  };
+in {
   stylix = {
     enable = true;
 
@@ -61,7 +67,7 @@
     };
 
     polarity = "dark";
-    image = inputs.nixy-wallpapers + "/wallpapers/aurore.png";
+    image = wallpaper;
   };
 
 }

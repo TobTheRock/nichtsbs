@@ -55,6 +55,7 @@
           direction = "vertical";
         };
       };
+      yanky.enable = true;
     };
   };
 }
