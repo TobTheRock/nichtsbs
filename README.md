@@ -1,3 +1,3 @@
 # Nichts BS
 
-Based on 
+Basiert auf [Nixy](https://github.com/anotherhadi/nixy) 

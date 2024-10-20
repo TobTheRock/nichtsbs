@@ -5,7 +5,7 @@
     hostname = "awesom-o";
     username = "tobi";
     homeDirectory = "/home/" + config.var.username;
-    configDirectory = config.var.homeDirectory + "/.config/nixos";
+    configDirectory = config.var.homeDirectory + "/Development/nichtsbs";
 
     keyboardLayout = "us";
 

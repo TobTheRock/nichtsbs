@@ -4,7 +4,7 @@
       "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
       "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
       "$mod,B, exec, ${pkgs.firefox}/bin/firefox" # Firefox
- #    "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
+      #    "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
       "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
       "$mod,M, exec, ${pkgs.protonmail-desktop}/bin/proton-mail" # Mail
       "$mod,X, exec, powermenu" # Powermenu
@@ -28,7 +28,7 @@
       "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
       "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
-      "$shiftMod,S, exec, ${pkgs.firefox}/bin/firefox :open $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
+      "$shiftMod,S, exec, ${pkgs.firefox}/bin/firefox -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
       "$mod,F2, exec, night-shift" # Toggle night shift

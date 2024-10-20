@@ -17,6 +17,7 @@
     ./modules/home-manager.nix
     ./modules/nix.nix
     ./modules/utils.nix
+    ./modules/steam.nix
     ./modules/tuigreet.nix
     ./modules/xorg.nix
     ./modules/yubikey.nix
