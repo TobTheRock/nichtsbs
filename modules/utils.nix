@@ -1,11 +1,6 @@
 { pkgs, config, ... }:
-let
-  hostname = config.var.hostname;
-  keyboardLayout = config.var.keyboardLayout;
+let keyboardLayout = config.var.keyboardLayout;
 in {
-
-  networking.hostName = hostname;
-
   services = {
     xserver = {
       enable = true;
@@ -14,7 +9,6 @@ in {
     };
     gnome.gnome-keyring.enable = true;
   };
-  console.keyMap = keyboardLayout;
 
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
@@ -22,9 +16,10 @@ in {
     EDITOR = "nvim";
   };
 
-  services.libinput.enable = true;
   programs.dconf.enable = true;
   services = {
+    printing.enable = true;
+    libinput.enable = true;
     dbus.enable = true;
     fwupd.enable = true;
     gvfs.enable = true;
@@ -43,7 +38,14 @@ in {
     nixos.enable = false;
   };
 
+  # mouse support for console
+  #  services.gpm.enable = true;
+
   environment.systemPackages = with pkgs; [
+    systemd
+    vim
+    tmux
+    wget
     fd
     bc
     gcc
