@@ -6,6 +6,12 @@
     home-manager.enable = true;
   };
 
-  home.packages = with pkgs; [ discord protonmail-desktop htop neofetch ];
+  home.packages = with pkgs; [
+    discord
+    htop
+    neofetch
+    protonmail-desktop
+    rclone
+  ];
 
 }
