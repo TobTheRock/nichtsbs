@@ -32,6 +32,8 @@
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
+    hyprsunset.url = "github:hyprwm/hyprsunset";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixy-wallpapers = {
@@ -42,11 +44,11 @@
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, ... }: {
     nixosConfigurations = {
-      hostname = nixpkgs.lib.nixosSystem {
+      awesom-o = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
             _module.args = { inherit inputs; };
           }
           ./configuration.nix

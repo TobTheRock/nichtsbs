@@ -18,7 +18,7 @@ let
   transparent = config.var.theme.bar.transparent;
 
   location = config.var.location;
-  username = config.var.username;
+  homeDirectory = config.var.homeDirectory;
 in {
   wayland.windowManager.hyprland.settings.exec-once =
     [ "${pkgs.hyprpanel}/bin/hyprpanel" ];
@@ -30,7 +30,7 @@ in {
       ''
         {
           "bar.layouts": {
-            "0": {
+            "*": {
               "left": [
                 "dashboard",
                 "workspaces",
@@ -45,44 +45,7 @@ in {
                 "volume",
                 "bluetooth",
                 "battery",
-                "clock",
-                "notifications"
-              ]
-            },
-            "1": {
-              "left": [
-                "dashboard",
-                "workspaces",
-                "windowtitle"
-              ],
-              "middle": [
-                "media"
-              ],
-              "right": [
-                "systray",
-                "network",
-                "volume",
-                "bluetooth",
-                "battery",
-                "clock",
-                "notifications"
-              ]
-            },
-            "2": {
-              "left": [
-                "dashboard",
-                "workspaces",
-                "windowtitle"
-              ],
-              "middle": [
-                "media"
-              ],
-              "right": [
-                "systray",
-                "network",
-                "volume",
-                "bluetooth",
-                "battery",
+                "kbinput",
                 "clock",
                 "notifications"
               ]
@@ -135,7 +98,7 @@ in {
           "menus.clock.weather.location": "${location}",
           "menus.clock.weather.key": "bd3c6cbd41b54e8b950195224241310",
           "menus.clock.weather.unit": "metric",
-          "menus.dashboard.powermenu.avatar.image": "/home/${username}/.profile_picture.png",
+          "menus.dashboard.powermenu.avatar.image": "${homeDirectory}/.profile_picture.png",
           "menus.dashboard.powermenu.confirmation": false,
 
           "menus.dashboard.shortcuts.left.shortcut1.icon": "",

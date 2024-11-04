@@ -7,7 +7,8 @@
     homeDirectory = "/home/" + config.var.username;
     configDirectory = config.var.homeDirectory + "/Development/nichtsbs";
 
-    keyboardLayout = "us";
+    keyboardLayout = "us,de";
+    keyboardToggle = "grp:alt_shift_toggle";
 
     location = "Dresden";
     timeZone = "Europe/Berlin";
@@ -40,6 +41,11 @@
         floating = true;
       };
     };
+    wolke = {
+      remoteName = "proton";
+      rootDir = config.var.homeDirectory;
+      syncDirs = [ "Documents" ];
+      mountDirs = [ "Pictures" "Music" ];
+    };
   };
-
 }

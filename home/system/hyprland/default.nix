@@ -9,14 +9,15 @@ let
   rounding = config.var.theme.rounding;
   blur = config.var.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
+  keyboardToggle = config.var.keyboardToggle;
 in {
 
-  imports = [ ./animations.nix ./bindings.nix ];
+  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
     qt6.qtwayland
-    qt5ct
+    libsForQt5.qt5ct
     qt6ct
     hyprshot
     hyprpicker
@@ -77,7 +78,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-   #     "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
+        #     "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
@@ -124,7 +125,7 @@ in {
       input = {
         kb_layout = keyboardLayout;
 
-        kb_options = "caps:escape";
+        kb_options = "${keyboardToggle}, compose:ralt";
         follow_mouse = 1;
         sensitivity = 0.5;
         repeat_delay = 300;
