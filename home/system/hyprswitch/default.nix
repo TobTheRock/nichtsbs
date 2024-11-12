@@ -5,4 +5,6 @@
     "${inputs.hyprswitch.packages."${pkgs.system}".default}/bin/hyprswitch init"
   ];
 
+  # TODO setup keybindings
+
 }

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bild
     ./nixy
     ./sounds
     ./brightness

@@ -49,21 +49,21 @@ let
       function rclone_check(){
         for dir in "''${syncDirs[@]}"; do
           echo "#-- Checking $dir"
-          rclone check ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s  --combined - --quiet 
+          rclone check ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s  --combined --quiet 
         done
       }
 
       function rclone_sync(){
         for dir in "''${syncDirs[@]}"; do
           echo "#-- Syncing $dir"
-          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet 
+          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet --transfers=2 --checkers=4 
         done
       }
 
       function rclone_mount(){
         for dir in "''${mountDirs[@]}"; do
           echo "#-- Mounting $dir"
-          rclone mount ${remoteName}:$dir ${rootDir}/$dir --allow-other --daemon
+          rclone mount ${remoteName}:$dir ${rootDir}/$dir --vfs-cache-mode full --allow-non-empty  --daemon 
         done
       }
 
