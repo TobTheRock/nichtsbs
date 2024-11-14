@@ -22,6 +22,7 @@
     ./modules/nix.nix
     ./modules/utils.nix
     ./modules/steam.nix
+    # ./modules/teamviewer.nix
     ./modules/tuigreet.nix
     ./modules/xorg.nix
     ./modules/yubikey.nix
@@ -34,5 +35,4 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
   system.stateVersion = "24.05";
-
 }
