@@ -2,6 +2,7 @@
   imports = [
     ./variables.nix
 
+    ./home/dev
     ./home/programs
     ./home/scripts
 
