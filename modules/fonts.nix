@@ -20,7 +20,8 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       jetbrains-mono
-      (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.meslo-lg
       #      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
       #      inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd
       openmoji-color

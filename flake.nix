@@ -40,6 +40,7 @@
       url = "github:anotherhadi/nixy-wallpapers";
       flake = false;
     };
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, ... }: {

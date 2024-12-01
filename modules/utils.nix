@@ -53,5 +53,6 @@ in {
     xdg-utils
     wget
     curl
+    libwebp
   ];
 }
