@@ -13,6 +13,7 @@
     neofetch
     protonmail-desktop
     rclone
+    unzip
   ];
 
 }
