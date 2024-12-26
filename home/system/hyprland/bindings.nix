@@ -31,7 +31,7 @@
       "$shiftMod,S, exec, ${pkgs.firefox}/bin/firefox -search $(wofi --show dmenu -L 1 -p ' Search on internet')" # Search on internet with wofi
       "$shiftMod,C, exec, clipboard" # Clipboard picker with wofi
       "$shiftMod,E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji" # Emoji picker with wofi
-      "$mod,F2, exec, night-shift" # Toggle night shift
+      # "$mod,F2, exec, night-shift" # Toggle night shift
       "$mod,F3, exec, night-shift" # Toggle night shift
     ] ++ (builtins.concatLists (builtins.genList (i:
       let ws = i + 1;
@@ -46,11 +46,11 @@
     ];
 
     bindl = [
-      ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
       ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
     ];
 
     bindle = [
+      ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
       ",XF86AudioRaiseVolume, exec, sound-up" # Sound Up
       ",XF86AudioLowerVolume, exec, sound-down" # Sound Down
       ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up

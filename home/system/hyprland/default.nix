@@ -12,7 +12,7 @@ let
   keyboardToggle = config.var.keyboardToggle;
 in {
 
-  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ];
+  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ./hyprspace.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland

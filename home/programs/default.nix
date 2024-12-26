@@ -14,6 +14,8 @@
     protonmail-desktop
     rclone
     unzip
+    onlyoffice-bin
+    nemo-with-extensions
   ];
 
 }

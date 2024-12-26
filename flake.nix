@@ -31,9 +31,9 @@
       inputs.hyprland.follows = "hyprland";
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprsunset.url = "github:hyprwm/hyprsunset";
+    # hyprspace = { url = "github:KZDKM/Hyprspace"; };
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixy-wallpapers = {

@@ -13,7 +13,6 @@
     ./home/system/hyprlock
     ./home/system/hyprpanel
     ./home/system/hyprpaper
-    ./home/system/hyprswitch
     ./home/system/udiskie
     ./home/system/wofi
   ];
