@@ -23,6 +23,7 @@
     ./modules/utils.nix
     ./modules/steam.nix
     # ./modules/teamviewer.nix
+    ./modules/thunar.nix
     ./modules/tuigreet.nix
     ./modules/xorg.nix
     ./modules/yubikey.nix
