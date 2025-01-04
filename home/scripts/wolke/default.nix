@@ -7,6 +7,7 @@ let
     (map (x: ''"${x}"'') config.var.wolke.mountDirs);
   remoteName = config.var.wolke.remoteName;
   rootDir = config.var.wolke.rootDir;
+  mntDir = config.var.wolke.rootDir + "/wolke";
   wolke = pkgs.writeShellScriptBin "wolke"
     # bash
     ''
@@ -63,7 +64,7 @@ let
       function rclone_mount(){
         for dir in "''${mountDirs[@]}"; do
           echo "#-- Mounting $dir"
-          rclone mount ${remoteName}:$dir ${rootDir}/$dir --vfs-cache-mode full --allow-non-empty  --daemon 
+          rclone mount ${remoteName}:$dir ${mntDir}/$dir --vfs-cache-mode full --allow-non-empty  --daemon 
         done
       }
 

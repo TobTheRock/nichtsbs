@@ -43,7 +43,7 @@
     };
     wolke = {
       remoteName = "proton";
-      rootDir = "${config.var.homeDirectory}/wolke";
+      rootDir = config.var.homeDirectory;
       syncDirs = [ "Documents" ];
       mountDirs = [ "Pictures" "Music" ];
     };
