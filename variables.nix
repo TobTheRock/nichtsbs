@@ -25,22 +25,7 @@
     autoUpgrade = true;
     autoGarbageCollector = true;
 
-    theme = {
-      rounding = 15;
-      gaps-in = 10;
-      gaps-out = 10 * 2;
-      active-opacity = 1;
-      inactive-opacity = 0.89;
-      blur = true;
-      border-size = 3;
-      animation-speed = "medium"; # "fast" | "medium" | "slow"
-      fetch = "nerdfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
-
-      bar = {
-        transparent = true;
-        floating = true;
-      };
-    };
+    theme = import ./themes/var/nichts.nix;
     wolke = {
       remoteName = "proton";
       rootDir = config.var.homeDirectory;

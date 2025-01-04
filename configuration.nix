@@ -28,7 +28,7 @@
     ./modules/xorg.nix
     ./modules/yubikey.nix
 
-    ./themes/nichts.nix
+    ./themes/stylix/nichts.nix
 
     ./users.nix
     ./variables.nix

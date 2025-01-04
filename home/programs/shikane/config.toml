@@ -1,0 +1,28 @@
+[[profile]]
+name = "Daheim"
+
+[[profile.output]]
+enable = false
+search = ["m=0x0A5F", "s=", "v=BOE"]
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2723QE", "s=2ZFGH34", "v=Dell Inc."]
+mode = "3840x2160@59.997Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile]]
+name = "Standalone"
+
+[[profile.output]]
+enable = true
+search = ["m=0x0A5F", "s=", "v=BOE"]
+mode = "1920x1200@60Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+

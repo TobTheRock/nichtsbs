@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./kitty ./fish ./git ./spicetify ./ssh ];
+  imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ];
 
   programs = {
     fzf.enable = true;
@@ -13,9 +13,9 @@
     neofetch
     protonmail-desktop
     rclone
+    onlyoffice-bin
     unzip
     zip
-    onlyoffice-bin
   ];
 
 }

@@ -1,8 +1,12 @@
 { ... }: {
   boot = {
-    loader =  {
+    loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        consoleMode = "auto";
+        configurationLimit = 5;
+      };
     };
     initrd = {
       systemd.enable = true;
