@@ -46,7 +46,7 @@
     ];
 
     bindl = [
-      ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
+      #      ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
     ];
 
     bindle = [

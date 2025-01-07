@@ -21,7 +21,8 @@
     inherit (config.var) username;
     inherit (config.var) homeDirectory;
     #sessionVariables.NIXOS_OZONE_WL = "1";
-    file.".profile_picture.png" = { source = ./profile_picture.png; };
+    # used by the hyprland module (default profile pic path)
+    file.".face.icon" = { source = ./profile_picture.png; };
   };
 
   home.stateVersion = "24.05";

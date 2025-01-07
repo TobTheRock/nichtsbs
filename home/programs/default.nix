@@ -10,6 +10,8 @@
     calibre
     discord
     htop
+    pavucontrol
+    pmutils
     neofetch
     protonmail-desktop
     rclone

@@ -1,1 +1,6 @@
-{ imports = [ ./rust ./nvim ]; }
+{pkgs, ...} :{ imports = [ ./rust ./nvim ]; 
+
+ home.packages = with pkgs; [
+    vscode
+ ];
+}

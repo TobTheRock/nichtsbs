@@ -54,5 +54,6 @@ in {
     wget
     curl
     libwebp
+    fwupd
   ];
 }
