@@ -7,8 +7,10 @@
   };
 
   home.packages = with pkgs; [
+    brave
     calibre
     discord
+    firefox
     htop
     pavucontrol
     pmutils

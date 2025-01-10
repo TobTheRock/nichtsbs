@@ -23,7 +23,6 @@ let
   position = config.var.theme.bar.position;
 
   location = config.var.location;
-  username = config.var.username;
 in {
 
   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
@@ -35,7 +34,7 @@ in {
     overwrite.enable = true;
     layout = {
       "bar.layouts" = {
-        "0" = {
+        "*" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
           "middle" = [ "media" ];
           "right" = [
