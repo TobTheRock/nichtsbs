@@ -7,10 +7,15 @@ in {
 
   # add a user system d service for shikkan
   systemd.user.services.shikane = {
-    Unit = { Description = "shikane display helper"; };
+    Unit = {
+      Description = "shikane display helper";
+      After = [ "graphical-session.target" ];
+      Wants = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.shikane}/bin/shikane -c ${shikaneConfig}";
       Restart = "always";
+      RestartSec = 5;
     };
   };
 
