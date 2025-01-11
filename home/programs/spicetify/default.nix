@@ -5,8 +5,6 @@ let
 in {
 
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "spotify" ];
   programs.spicetify = {
     enable = true;
     theme = lib.mkForce spicePkgs.themes.text;

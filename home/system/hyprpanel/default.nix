@@ -1,6 +1,6 @@
 # Hyprpanel is the bar on top of the screen
 # Display informations like workspaces, battery, wifi, ...
-{ inputs, pkgs, config, ... }:
+{ inputs, config, ... }:
 let
   transparentButtons = config.var.theme.bar.transparentButtons;
 
@@ -32,9 +32,10 @@ in {
     systemd.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
+    overlay.enable = true;
     layout = {
       "bar.layouts" = {
-        "*" = {
+        "0" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
           "middle" = [ "media" ];
           "right" = [
@@ -68,7 +69,7 @@ in {
       "theme.bar.buttons.workspaces.hover" = "${accent-alt}";
       "theme.bar.buttons.workspaces.active" = "${accent}";
       "theme.bar.buttons.workspaces.available" = "${accent-alt}";
-      "theme.bar.buttons.workspaces.occupied" = "${accent}";
+      "theme.bar.buttons.workspaces.occupied" = "${accent-alt}";
       "theme.bar.margin_top" =
         "${if position == "top" then toString (gaps-in * 2) else "0"}px";
       "theme.bar.margin_bottom" =
@@ -79,7 +80,6 @@ in {
       "theme.bar.transparent" = "${if transparent then "true" else "false"}";
       "bar.workspaces.show_numbered" = false;
       "bar.workspaces.workspaces" = 5;
-      "bar.workspaces.monitorSpecific" = true;
       "bar.workspaces.hideUnoccupied" = false;
       "bar.windowtitle.label" = true;
       "bar.volume.label" = false;
@@ -143,8 +143,8 @@ in {
       "theme.bar.menus.tooltip.text" = "${foreground}";
       "theme.bar.menus.dropdownmenu.background" = "${background-alt}";
       "theme.bar.menus.dropdownmenu.text" = "${foreground}";
-      "theme.bar.background" =
-        "${background + (if transparentButtons then "00" else "")}";
+      "theme.bar.background" = "${background
+        + (if transparentButtons && transparent then "00" else "")}";
       "theme.bar.buttons.style" = "default";
       "theme.bar.buttons.monochrome" = true;
       "theme.bar.buttons.text" = "${foreground}";
@@ -176,6 +176,12 @@ in {
       "bar.customModules.updates.pollingInterval" = 1440000;
       "bar.media.show_active_only" = true;
       "theme.bar.location" = "${position}";
+      "bar.workspaces.numbered_active_indicator" = "color";
+      "bar.workspaces.monitorSpecific" = false;
+      "bar.workspaces.applicationIconEmptyWorkspace" = "";
+      "bar.workspaces.showApplicationIcons" = true;
+      "bar.workspaces.showWsIcons" = true;
+      "theme.bar.dropdownGap" = "4.5em";
     };
   };
 }
