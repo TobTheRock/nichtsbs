@@ -20,10 +20,11 @@
     ./modules/home-manager.nix
     ./modules/networking.nix
     ./modules/nix.nix
-    ./modules/utils.nix
+    ./modules/printing.nix
     ./modules/steam.nix
     # ./modules/teamviewer.nix
     ./modules/thunar.nix
+    ./modules/utils.nix
     ./modules/tuigreet.nix
     ./modules/xorg.nix
     ./modules/yubikey.nix

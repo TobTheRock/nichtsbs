@@ -18,6 +18,7 @@
     protonmail-desktop
     rclone
     onlyoffice-bin
+    system-config-printer
     unzip
     zip
   ];

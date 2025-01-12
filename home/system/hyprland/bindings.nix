@@ -4,8 +4,28 @@
       "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
       "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
       "$mod,B, exec, ${pkgs.firefox}/bin/firefox" # Firefox
+      "$shiftMod,B, exec, ${pkgs.firefox}/bin/firefox --private-window" # Firefox
       #    "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
       "$mod,L, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock
+      "$mod,M, exec, ${pkgs.protonmail-desktop}/bin/proton-mail" # Mail
+      "$mod,X, exec, powermenu" # Powermenu
+      "$mod,SPACE, exec, menu" # Launcher
+      "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
+
+      "$mod,Q, killactive," # Close window
+      "$mod,T, togglefloating," # Toggle Floating
+      "$mod,F, fullscreen" # Toggle Fullscreen
+      "$mod,left, movefocus, l" # Move focus left
+      "$mod,right, movefocus, r" # Move focus Right
+      "$mod,up, movefocus, u" # Move focus Up
+      "$mod,down, movefocus, d" # Move focus Down
+      "$shiftMod,up, focusmonitor, -1" # Focus previous monitor
+      "$shiftMod,down, focusmonitor, 1" # Focus next monitor
+      "$shiftMod,left, layoutmsg, addmaster" # Add to master
+      "$shiftMod,right, layoutmsg, removemaster" # Remove from master
+
+      "$mod,PRINT, exec, screenshot window" # Screenshot window
+      ",PRINT, exec, screenshot monitor" # Screenshot monitor
       "$shiftMod,PRINT, exec, screenshot region" # Screenshot region
       "ALT,PRINT, exec, screenshot region swappy" # Screenshot region then edit
 
@@ -27,7 +47,7 @@
     ];
 
     bindl = [
-      # ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
+      ",switch:Lid Switch, exec, schlaf" # Lock when closing Lid
     ];
 
     bindle = [

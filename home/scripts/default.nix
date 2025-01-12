@@ -11,7 +11,8 @@
     ./screenshot
     ./nerdfont_fzf
     ./notification
-    ./wolke
     ./system
+    ./schlaf
+    ./wolke
   ];
 }

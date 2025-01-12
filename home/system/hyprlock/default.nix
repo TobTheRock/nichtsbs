@@ -24,6 +24,10 @@ in {
         vibrancy_darkness = 0.0;
       };
 
+      auth = {
+        pam.enable = true;
+      };
+
       label = [
         {
           # Day-Month-Date

@@ -18,7 +18,6 @@ in {
 
   programs.dconf.enable = true;
   services = {
-    printing.enable = true;
     libinput.enable = true;
     dbus.enable = true;
     fwupd.enable = true;

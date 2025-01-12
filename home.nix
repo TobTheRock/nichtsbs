@@ -5,16 +5,8 @@
     ./home/dev
     ./home/programs
     ./home/scripts
+    ./home/system
 
-    ./home/system/batsignal
-    ./home/system/clipman
-    ./home/system/hypridle
-    ./home/system/hyprland
-    ./home/system/hyprlock
-    ./home/system/hyprpanel
-    ./home/system/hyprpaper
-    ./home/system/udiskie
-    ./home/system/wofi
   ];
 
   home = {
