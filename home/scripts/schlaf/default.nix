@@ -10,5 +10,6 @@ let
     fi
 
     ${pkgs.hyprlock}/bin/hyprlock
+    # TODO sway idle, use systemd suspend then hibernate
   '';
 in { home.packages = [ schlaf ]; }
