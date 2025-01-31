@@ -7,5 +7,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ amdvlk ];
   };
-  boot.kernelParams = [ "video=DP-1:2560x1440@144" "video=DP-2:2560x1440@144" ];
+  #  1080p and 30 Hz
+  boot.kernelParams = [ "video=DP-1:1920x1080@30" "video=DP-2:1920x1080@30" ];
+  # boot.kernelParams = [ "video=DP-1:3840x2160@60" "video=DP-2:3840x2160@60" ];
 }

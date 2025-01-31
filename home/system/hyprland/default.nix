@@ -12,7 +12,8 @@ let
   keyboardToggle = config.var.keyboardToggle;
 in {
 
-  imports = [ ./animations.nix ./bindings.nix ./polkitagent.nix ./hyprspace.nix ];
+  imports =
+    [ ./animations.nix ./bindings.nix ./polkitagent.nix ./hyprspace.nix ];
 
   home.packages = with pkgs; [
     qt5.qtwayland
@@ -47,43 +48,44 @@ in {
       "$shiftMod" = "SUPER_SHIFT";
 
       monitor = [
-        "eDP-2,highres,0x0,1"
-        "HDMI-A-1,3440x1440@99.98,auto,1"
+        "eDP-1,highres,0x0,1"
+        # "DP-1,highres,0x0,1"
+        # "DP-2,highres,0x0,1"
         ",prefered,auto,1"
       ];
 
       env = [
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
-        "MOZ_ENABLE_WAYLAND,1"
-        "ANKI_WAYLAND,1"
-        "DISABLE_QT5_COMPAT,0"
-        "NIXOS_OZONE_WL,1"
-        "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "MOZ_ENABLE_WAYLAND,1"
+        "DISABLE_QT5_COMPAT,0"
+        "NIXOS_OZONE_WL,1" # wayland for chromium
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GTK_THEME,FlatColor:dark"
         "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
         "__GL_GSYNC_ALLOWED,0"
         "__GL_VRR_ALLOWED,0"
         "DISABLE_QT5_COMPAT,0"
         "DIRENV_LOG_FORMAT,"
-        "WLR_DRM_NO_ATOMIC,1"
-        "WLR_BACKEND,vulkan"
-        "WLR_RENDERER,vulkan"
+        # "WLR_DRM_NO_ATOMIC,1"
+        # "WLR_BACKEND,vulkan"
+        # "WLR_RENDERER,vulkan"
         "WLR_NO_HARDWARE_CURSORS,1"
         "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
         #     "AQ_DRM_DEVICES,/dev/dri/card2" # CHANGEME: Related to the GPU
+        # "AQ_NO_ATOMIC,1"
+        # "AQ_NO_MODIFIERS,1"
       ];
 
       cursor = {
         no_hardware_cursors = true;
-        default_monitor = "eDP-2";
+        default_monitor = "eDP-1";
       };
 
       general = {
