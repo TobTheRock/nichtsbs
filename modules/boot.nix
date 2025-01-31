@@ -9,7 +9,6 @@
       };
     };
     initrd = {
-      systemd.enable = true;
       luks.devices = {
         root = {
           device = "/dev/nvme0n1p2";
