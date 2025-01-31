@@ -5,7 +5,6 @@ let
 in {
   home.packages = with pkgs; [ shikane wdisplays ];
 
-  # add a user system d service for shikkan
   systemd.user.services.shikane = {
     Unit = {
       Description = "shikane display helper";

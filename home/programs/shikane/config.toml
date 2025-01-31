@@ -4,7 +4,7 @@ name = "Daheim"
 [[profile.output]]
 enable = true
 search = ["m=DELL U2723QE", "s=2ZFGH34", "v=Dell Inc."]
-mode = "3840x2160@59.997Hz"
+mode = "3840x2160@30Hz"
 position = "0,0"
 scale = 1.0
 transform = "normal"
