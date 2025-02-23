@@ -2,6 +2,7 @@
   imports = [
     ./batsignal
     ./clipman
+    ./mime
     ./hypridle
     ./hyprland
     ./hyprlock

@@ -17,6 +17,7 @@
     neofetch
     protonmail-desktop
     rclone
+    okular
     onlyoffice-bin
     system-config-printer
     unzip
