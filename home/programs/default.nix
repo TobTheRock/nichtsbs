@@ -17,7 +17,7 @@
     neofetch
     protonmail-desktop
     rclone
-    okular
+    kdePackages.okular
     onlyoffice-bin
     system-config-printer
     unzip

@@ -98,6 +98,7 @@ in {
       "menus.clock.weather.unit" = "metric";
       "menus.dashboard.powermenu.confirmation" = false;
 
+      "menus.dashboard.powermenu.avatar.image" = "~/.face.icon";
       "menus.dashboard.shortcuts.left.shortcut1.icon" = "";
       "menus.dashboard.shortcuts.left.shortcut1.command" = "zen";
       "menus.dashboard.shortcuts.left.shortcut1.tooltip" = "Zen";
