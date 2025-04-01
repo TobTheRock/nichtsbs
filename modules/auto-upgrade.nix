@@ -2,7 +2,7 @@
 let
   username = config.var.username;
   configDir = config.var.configDirectory;
-  flakePath = configDir + ".flake";
+  flakePath = configDir + "/.flake";
 in {
   systemd.services = {
     flake-update = {
