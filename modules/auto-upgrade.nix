@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 let
   username = config.var.username;
   configDir = config.var.configDirectory;
-  flakePath = configDir + "/.flake";
 in {
   systemd.services = {
     flake-update = {
@@ -16,7 +15,7 @@ in {
       requiredBy = [ "nixos-upgrade.service" ];
       serviceConfig = {
         ExecStart =
-          "${pkgs.nix}/bin/nix flake update --commit-lock-file --flake ${flakePath}";
+          "${pkgs.nix}/bin/nix flake update --commit-lock-file --flake ${configDir}";
         Restart = "on-failure";
         RestartSec = "30";
         Type =
@@ -31,10 +30,10 @@ in {
   system.autoUpgrade = {
     enable = true;
     dates = "03:00";
-    flake = flakePath;
+    flake = inputs.self.outPath;
     allowReboot = false;
   };
 
-  programs.git.config.safe.directory = [ flakePath ];
+  programs.git.config.safe.directory = [ configDir ];
   programs.git.enable = true;
 }
