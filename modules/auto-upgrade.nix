@@ -6,8 +6,8 @@ let
 in {
   systemd.services = {
     flake-update = {
-      preStart =
-        "${pkgs.host}/bin/host example.com"; # Check network connectivity
+      after = [ "network-online.target" ];
+      wants = [ "network-online.target" ];
       unitConfig = {
         Description = "Update flake inputs";
         StartLimitIntervalSec = 300;
