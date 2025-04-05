@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./rust ./nvim ];
+  imports = [ ./lazygit ./nvim ./rust ];
 
-  home.packages = with pkgs; [
-    vscode
-    python314
-  ];
+  home.packages = with pkgs; [ vscode python314 ];
 }
