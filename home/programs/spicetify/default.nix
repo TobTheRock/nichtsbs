@@ -2,18 +2,25 @@
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   accent = "#${config.lib.stylix.colors.base0D}";
+  background = "#${config.lib.stylix.colors.base00}";
 in {
 
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+
+  stylix.targets.spicetify.enable = false;
+
   programs.spicetify = {
     enable = true;
     theme = lib.mkForce spicePkgs.themes.text;
 
-    # TODO: Colors not working
+    colorScheme = "custom";
     customColorScheme = lib.mkForce {
       button = accent;
       button-active = accent;
       tab-active = accent;
+      player = background;
+      main = background;
+      sidebar = background;
     };
 
     enabledExtensions = with spicePkgs.extensions; [
@@ -24,6 +31,7 @@ in {
       adblock
       fullAppDisplay
       shuffle
+      keyboardShortcut
     ];
   };
 }
