@@ -11,6 +11,7 @@
       "$mod,X, exec, powermenu" # Powermenu
       "$mod,SPACE, exec, menu" # Launcher
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$shiftMod,R, exec, hypranel-reload && hyprctl reload" # reload
 
       "$mod,Q, killactive," # Close window
       "$mod,T, togglefloating," # Toggle Floating
