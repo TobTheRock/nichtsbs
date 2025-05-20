@@ -12,6 +12,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cryptsetup
     libfido2
     pam_u2f
     pinentry-curses

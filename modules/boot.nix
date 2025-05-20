@@ -10,6 +10,7 @@
     };
     initrd = {
       systemd = {
+        enable = true;
         fido2.enable = true;
       };
 
