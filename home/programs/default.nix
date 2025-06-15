@@ -7,6 +7,7 @@
   };
 
   home.packages = with pkgs; [
+    ausweisapp
     brave
     calibre
     digikam

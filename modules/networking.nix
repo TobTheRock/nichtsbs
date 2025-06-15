@@ -15,6 +15,9 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  # Ausweisapp
+  networking.firewall.allowedTCPPorts = [ 24727 ];
+  networking.firewall.allowedUDPPorts = [ 24727 ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
