@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ];
+  imports = [ ./kitty ./fish ./matrix ./shikane ./git ./spicetify ./ssh ];
 
   programs = {
     fzf.enable = true;

@@ -2,6 +2,8 @@
 let autoGarbageCollector = config.var.autoGarbageCollector;
 in {
   nixpkgs.config = {
+
+  permittedInsecurePackages = [ "olm-3.2.16" ]; # matrix-whatsapp
     allowUnfree = true;
     allowBroken = true;
   };
