@@ -21,6 +21,7 @@
     rclone
     kdePackages.okular
     onlyoffice-bin
+    signal-desktop
     system-config-printer
     unzip
     zip
