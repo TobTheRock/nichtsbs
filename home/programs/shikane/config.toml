@@ -47,3 +47,24 @@ scale = 1.0
 transform = "normal"
 adaptive_sync = false
 
+[[profile]]
+name = "Office"
+
+[[profile.output]]
+enable = false
+search = ["m=0x0A5F", "s=", "v=BOE"]
+mode = "1920x1200@60Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=PL2792UH", "s=1216532611738", "v=Iiyama North America"]
+mode = "3840x2160@59.997Hz"
+position = "1920,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
