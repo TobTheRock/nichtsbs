@@ -49,7 +49,7 @@
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
           }
           ./configuration.nix
