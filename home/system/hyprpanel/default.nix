@@ -42,6 +42,7 @@ in {
               "volume"
               "bluetooth"
               "battery"
+              "kbinput"
               "network"
               "clock"
               "notifications"
