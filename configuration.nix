@@ -23,7 +23,6 @@
     ./modules/printing.nix
     ./modules/steam.nix
     # ./modules/teamviewer.nix
-    ./modules/thunar.nix
     ./modules/utils.nix
     ./modules/tuigreet.nix
     ./modules/xorg.nix

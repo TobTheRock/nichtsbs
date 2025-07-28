@@ -27,6 +27,7 @@ let
 
   location = config.var.location;
 in {
+  wayland.windowManager.hyprland.settings.exec-once = [ "hyprpanel" ];
 
   programs.hyprpanel = {
     enable = true;
@@ -34,7 +35,7 @@ in {
     settings = {
       layout = {
         bar.layouts = {
-          "*" = {
+          "0" = {
             "left" = [ "dashboard" "workspaces" "windowtitle" ];
             "middle" = [ "media" "cava" ];
             "right" = [

@@ -14,6 +14,9 @@ in {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "nvim";
+    TERMINAL = "kitty";
+    TERM = "kitty";
+    BROWSER = "firefox";
   };
 
   programs.dconf.enable = true;
@@ -43,7 +46,6 @@ in {
   environment.systemPackages = with pkgs; [
     systemd
     vim
-    tmux
     wget
     fd
     bc

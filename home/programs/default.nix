@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ];
+  imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ./thunar ];
 
   programs = {
     fzf.enable = true;
@@ -21,8 +21,12 @@
     rclone
     kdePackages.okular
     onlyoffice-bin
+    # pdf utils
+    pdftk
+    img2pdf
     signal-desktop
     system-config-printer
+    tmux
     unzip
     zip
   ];
