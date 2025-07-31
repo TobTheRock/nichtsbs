@@ -1,6 +1,31 @@
 { pkgs, ... }:
+let
+  # Browsers and Internet tools
+  browserPkgs = with pkgs; [ brave firefox rclone ];
+  # Messaging & Communication
+  messagingPkgs = with pkgs; [ signal-desktop discord protonmail-desktop ];
+  # Office & PDF Tools
+  officePkgs = with pkgs; [
+    ausweisapp
+    calibre
+    kdePackages.okular
+    img2pdf
+    pdftk
+    onlyoffice-bin
+    system-config-printer
+  ];
+  # Media tools and image management
+  mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol ];
+  # System utilities and CLI tools
+  cliPkgs = with pkgs; [ htop neofetch tmux unzip zip pmutils ];
+  # Misc apps
+  miscPkgs = with pkgs; [ ];
 
-{
+  # Combine everything
+  allPackages = browserPkgs ++ messagingPkgs ++ officePkgs ++ mediaPkgs
+    ++ cliPkgs ++ miscPkgs;
+
+in {
   imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ./thunar ];
 
   programs = {
@@ -8,33 +33,5 @@
     home-manager.enable = true;
   };
 
-  home.packages = with pkgs; [
-    ausweisapp
-    brave
-    calibre
-    digikam
-    discord
-    firefox
-    htop
-    pavucontrol
-    pmutils
-    neofetch
-    protonmail-desktop
-    rclone
-    kdePackages.okular
-    onlyoffice-bin
-    # pdf utils
-    pdftk
-    img2pdf
-    signal-desktop
-    system-config-printer
-    tmux
-    unzip
-    zip
-    # Media
-    imv
-    mpv
-    # Office 
-  ];
-
+  home.packages = allPackages;
 }
