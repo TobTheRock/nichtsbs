@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ./thunar ];
 
   programs = {
@@ -29,6 +31,10 @@
     tmux
     unzip
     zip
+    # Media
+    imv
+    mpv
+    # Office 
   ];
 
 }
