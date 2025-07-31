@@ -47,6 +47,12 @@ in {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
+      exec-once = [
+        "dbus-update-activation-environment --systemd --all &"
+        "systemctl --user enable --now hyprpaper.service &"
+        # "systemctl --user enable --now nextcloud-client.service  &"
+      ];
+
       monitor = [
         "eDP-1,highres,0x0,1"
         # "DP-1,highres,0x0,1"
