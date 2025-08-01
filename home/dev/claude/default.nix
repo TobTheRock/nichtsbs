@@ -1,7 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    claude-code
-  ];
+  home.packages = with pkgs; [ claude-code ];
 
   home.file.".claude/agents" = {
     source = pkgs.fetchFromGitHub {
