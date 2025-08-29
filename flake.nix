@@ -41,15 +41,16 @@
       flake = false;
     };
     nur.url = "github:nix-community/NUR";
+    fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, fenix, ... }: {
     nixosConfigurations = {
       awesom-o = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ ];
+            nixpkgs.overlays = [ fenix.overlays.default ];
             _module.args = { inherit inputs; };
           }
           ./configuration.nix
