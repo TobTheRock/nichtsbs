@@ -11,7 +11,7 @@ let
     kdePackages.okular
     img2pdf
     pdftk
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     system-config-printer
   ];
   # Media tools and image management
