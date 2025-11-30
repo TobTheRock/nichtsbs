@@ -36,7 +36,7 @@ in {
 
     settings = {
       bar.layouts = {
-        "*" = {
+        "0" = {
           left = [ "dashboard" "workspaces" "windowtitle" ];
           middle = [ "media" "cava" ];
           right = [
@@ -44,6 +44,7 @@ in {
             "volume"
             "bluetooth"
             "battery"
+            "kbinput"
             "network"
             "clock"
             "notifications"
