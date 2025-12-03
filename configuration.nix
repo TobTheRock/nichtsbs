@@ -34,6 +34,8 @@
     ./variables.nix
   ];
 
+  stylix.enableReleaseChecks = false;
+
   home-manager.users."${config.var.username}" = import ./home.nix;
   system.stateVersion = "24.05";
 }

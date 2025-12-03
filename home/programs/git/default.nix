@@ -5,12 +5,12 @@ let
 in {
   programs.git = {
     enable = true;
-    userName = username;
-    userEmail = email;
     ignores = [
       ".playground"
     ];
-    extraConfig = {
+    settings = {
+      user.name = username;
+      user.email = email;
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       core.editor = "vim";

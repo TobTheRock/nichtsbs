@@ -47,9 +47,9 @@
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, fenix, ... }: {
     nixosConfigurations = {
       awesom-o = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           {
+            nixpkgs.hostPlatform = "x86_64-linux";
             nixpkgs.overlays = [ fenix.overlays.default ];
             _module.args = { inherit inputs; };
           }

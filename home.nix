@@ -9,6 +9,8 @@
 
   ];
 
+  stylix.enableReleaseChecks = false;
+
   home = {
     inherit (config.var) username;
     inherit (config.var) homeDirectory;

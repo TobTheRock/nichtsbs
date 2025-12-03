@@ -52,7 +52,7 @@ let
     '';
 in {
   home.packages = [
-    inputs.hyprsunset.packages."${pkgs.system}".hyprsunset
+    inputs.hyprsunset.packages."${pkgs.stdenv.hostPlatform.system}".hyprsunset
     night-shift-on
     night-shift-off
     night-shift
