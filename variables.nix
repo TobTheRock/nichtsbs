@@ -1,12 +1,11 @@
-{ config, ... }: {
+{ config, inputs, ... }: {
   imports = [ ./modules/variables-config.nix ];
 
   config.var = {
     hostname = "awesom-o";
     username = "tobi";
     homeDirectory = "/home/" + config.var.username;
-    #TODO get this dynamically
-    configDirectory = config.var.homeDirectory + "/Development/nix/nichtsbs";
+    configDirectory = inputs.self.outPath;
 
     keyboardLayout = "us,de";
     keyboardToggle = "grp:alt_shift_toggle";

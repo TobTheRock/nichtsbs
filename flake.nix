@@ -15,10 +15,6 @@
       url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     plugin-markdown = {
       url = "github:MeanderingProgrammer/render-markdown.nvim";
@@ -44,7 +40,15 @@
     fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, fenix, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, fenix, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [ fenix.overlays.default ];
+    };
+  in
+  {
     nixosConfigurations = {
       awesom-o = nixpkgs.lib.nixosSystem {
         modules = [
@@ -59,6 +63,10 @@
           lanzaboote.nixosModules.lanzaboote
         ];
       };
+    };
+
+    devShells.${system} = {
+      rust = import ./devShells/rust.nix { inherit pkgs; };
     };
   };
 }

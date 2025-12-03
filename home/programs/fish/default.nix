@@ -1,10 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs = {
     fish = {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
+      shellAliases = {
+        dev-rust = "nix develop ${config.var.configDirectory}#rust";
+      };
       plugins = [
         {
           name = "fzf-fish";

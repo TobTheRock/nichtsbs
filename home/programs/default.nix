@@ -15,7 +15,7 @@ let
     system-config-printer
   ];
   # Media tools and image management
-  mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol ];
+  mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol tidal-hifi ];
   # System utilities and CLI tools
   cliPkgs = with pkgs; [ htop neofetch tmux unzip zip pmutils ];
   # Misc apps
@@ -26,7 +26,7 @@ let
     ++ cliPkgs ++ miscPkgs;
 
 in {
-  imports = [ ./kitty ./fish ./shikane ./git ./spicetify ./ssh ./thunar ];
+  imports = [ ./kitty ./fish ./shikane ./git ./ssh ./thunar ];
 
   programs = {
     fzf.enable = true;
