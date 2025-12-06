@@ -25,6 +25,9 @@
     autoUpgrade = true;
     autoGarbageCollector = true;
 
+    # AI features for development environments
+    enableAIFeatures = true;
+
     theme = import ./themes/var/nichts.nix;
     wolke = {
       remoteName = "proton";
