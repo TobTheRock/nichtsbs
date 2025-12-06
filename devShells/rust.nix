@@ -7,16 +7,19 @@ let
   # rust-analyzer MCP server for Rust code analysis
   rust-analyzer-mcp = pkgs.rustPlatform.buildRustPackage rec {
     pname = "rust-analyzer-mcp";
-    version = "0.4.0";
+    version = "0.2.0";
 
     src = pkgs.fetchFromGitHub {
       owner = "zeenix";
       repo = "rust-analyzer-mcp";
       rev = "v${version}";
-      hash = "sha256-8cRCJj/wZDWUwfQT8bME9n0wSfBNyOi2LMJk8ZkMCvg=";
+      hash = "sha256-brnzVDPBB3sfM+5wDw74WGqN5ahtuV4OvaGhnQfDqM0=";
     };
 
-    cargoHash = "sha256-jTc/aO1WtPm/m/Zu7d6y36+6xh1t0b/BZCLddQYYV+g=";
+    cargoHash = "sha256-7t4bjyCcbxFAO/29re7cjoW1ACieeEaM4+QT5QAwc34=";
+
+    # Tests require files not available in the Nix sandbox
+    doCheck = false;
 
     nativeBuildInputs = [ pkgs.pkg-config ];
     buildInputs = [ pkgs.openssl ];
@@ -75,10 +78,13 @@ pkgs.mkShell {
     ${if enableAIFeatures then ''
     echo ""
     echo "🤖 AI Features: MCP servers available"
-    echo "   - mcp-server-filesystem"
-    echo "   - mcp-server-git"
-    echo "   - mcp-server-sequential-thinking"
-    echo "   - rust-analyzer-mcp (Rust code analysis)"
+
+    # Configure Claude Code MCP servers using CLI
+    claude mcp add filesystem -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-filesystem}/bin/mcp-server-filesystem . 2>/dev/null || true
+    claude mcp add git -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-git}/bin/mcp-server-git 2>/dev/null || true
+    claude mcp add sequential-thinking -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking 2>/dev/null || true
+    claude mcp add rust-analyzer -s user -- ${rust-analyzer-mcp}/bin/rust-analyzer-mcp 2>/dev/null || true
+    echo "   Claude Code MCP servers configured"
     '' else ""}
     export PATH="${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/:$PATH"
   '';
