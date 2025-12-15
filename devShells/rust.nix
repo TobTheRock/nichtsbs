@@ -50,6 +50,7 @@ pkgs.mkShell {
       "cargo"
       "clippy"
       "rust-src"
+      "rust-std"
       "rustc"
       "rustfmt"
       "rust-analyzer"
@@ -74,6 +75,12 @@ pkgs.mkShell {
   shellHook = ''
     export PATH="${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/:$PATH"
     export SHELL="${pkgs.fish}/bin/fish"
+
+    # Rust debugging: set source path and library path for std lib
+    export RUST_SRC_PATH="${pkgs.fenix.complete.rust-src}/lib/rustlib/src/rust/library"
+    # Add the toolchain's lib directory (contains libstd for debugging)
+    RUST_TOOLCHAIN="${pkgs.fenix.complete.withComponents ["rustc" "rust-std"]}"
+    export LD_LIBRARY_PATH="$RUST_TOOLCHAIN/lib:$LD_LIBRARY_PATH"
 
     ${if enableAIFeatures then ''
     # Configure Claude Code MCP servers using CLI
