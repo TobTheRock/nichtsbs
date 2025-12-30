@@ -1,5 +1,11 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ claude-code ];
+  home.packages = with pkgs; [
+    claude-code
+    # claude-mem dependencies
+    bun
+    uv
+    sqlite
+  ];
 
   home.file.".claude/agents" = {
     source = pkgs.fetchFromGitHub {
@@ -10,4 +16,11 @@
     };
     recursive = true;
   };
+
+  # Global Claude Code instructions
+  home.file.".claude/CLAUDE.md".text = ''
+    # Coding standards
+
+    - Always follow clean code guidelines
+  '';
 }
