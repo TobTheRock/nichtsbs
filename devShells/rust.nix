@@ -45,8 +45,8 @@ pkgs.mkShell {
   name = "rust-dev";
 
   buildInputs = with pkgs; [
-    # Rust toolchain with stable, nightly, and wasm target using Fenix
-    (fenix.complete.withComponents [
+    # Rust toolchain with latest stable and wasm target using Fenix
+    (fenix.stable.withComponents [
       "cargo"
       "clippy"
       "rust-src"
@@ -55,7 +55,7 @@ pkgs.mkShell {
       "rustfmt"
       "rust-analyzer"
     ])
-    (fenix.targets.wasm32-unknown-unknown.latest.rust-std)
+    (fenix.targets.wasm32-unknown-unknown.stable.rust-std)
 
     # Cargo tools
     wasm-pack
@@ -77,9 +77,9 @@ pkgs.mkShell {
     export SHELL="${pkgs.fish}/bin/fish"
 
     # Rust debugging: set source path and library path for std lib
-    export RUST_SRC_PATH="${pkgs.fenix.complete.rust-src}/lib/rustlib/src/rust/library"
+    export RUST_SRC_PATH="${pkgs.fenix.stable.rust-src}/lib/rustlib/src/rust/library"
     # Add the toolchain's lib directory (contains libstd for debugging)
-    RUST_TOOLCHAIN="${pkgs.fenix.complete.withComponents ["rustc" "rust-std"]}"
+    RUST_TOOLCHAIN="${pkgs.fenix.stable.withComponents ["rustc" "rust-std"]}"
     export LD_LIBRARY_PATH="$RUST_TOOLCHAIN/lib:$LD_LIBRARY_PATH"
 
     ${if enableAIFeatures then ''
