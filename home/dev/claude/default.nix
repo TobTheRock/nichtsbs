@@ -22,5 +22,7 @@
     # Coding standards
 
     - Always follow clean code guidelines
+    - Always follow TDD. Write a test before implementation or bug fixing to prove your point.
+      - When implementing try to define the API first, preferrably by putting it to use first.
   '';
 }
