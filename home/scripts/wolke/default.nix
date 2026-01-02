@@ -42,7 +42,50 @@ let
     };
   };
 
+  mkSyncService = dir: {
+    name = "rclone-sync-${lib.strings.toLower dir}";
+    value = {
+      Unit = {
+        Description = "rclone sync for ${remoteName}:${dir}";
+        After = [ "network-online.target" ];
+        Wants = [ "network-online.target" ];
+      };
+      Service = {
+        Type = "oneshot";
+        ExecStart = lib.concatStringsSep " " [
+          "${pkgs.rclone}/bin/rclone sync"
+          "${rootDir}/${dir}"
+          "${remoteName}:${dir}"
+          "--transfers=1"
+          "--checkers=2"
+          "--retries=10"
+          "--retries-sleep=5s"
+          "--low-level-retries=10"
+        ];
+      };
+    };
+  };
+
+  mkSyncTimer = dir: {
+    name = "rclone-sync-${lib.strings.toLower dir}";
+    value = {
+      Unit = {
+        Description = "Timer for rclone sync ${remoteName}:${dir}";
+      };
+      Timer = {
+        OnBootSec = "5min";
+        OnUnitActiveSec = "30min";
+        Persistent = true;
+      };
+      Install = {
+        WantedBy = [ "timers.target" ];
+      };
+    };
+  };
+
   mountServices = builtins.listToAttrs (map mkMountService config.var.wolke.mountDirs);
+  syncServices = builtins.listToAttrs (map mkSyncService config.var.wolke.syncDirs);
+  syncTimers = builtins.listToAttrs (map mkSyncTimer config.var.wolke.syncDirs);
 
   wolke = pkgs.writeShellScriptBin "wolke"
     # bash
@@ -93,7 +136,7 @@ let
       function rclone_sync(){
         for dir in "''${syncDirs[@]}"; do
           echo "#-- Syncing $dir"
-          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet --transfers=2 --checkers=4
+          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet --transfers=1 --checkers=2 --retries=10 --retries-sleep=5s --low-level-retries=10
         done
       }
 
@@ -121,5 +164,6 @@ let
     '';
 in {
   home.packages = with pkgs; [ rclone wolke ];
-  systemd.user.services = mountServices;
+  systemd.user.services = mountServices // syncServices;
+  systemd.user.timers = syncTimers;
 }
