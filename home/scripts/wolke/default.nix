@@ -16,6 +16,8 @@ let
         Description = "rclone mount for ${remoteName}:${dir}";
         After = [ "network-online.target" ];
         Wants = [ "network-online.target" ];
+        StartLimitBurst = 5;
+        StartLimitIntervalSec = 300;
       };
       Service = {
         Type = "simple";
@@ -34,7 +36,7 @@ let
         ];
         ExecStop = "${pkgs.fuse}/bin/fusermount -u ${mntDir}/${dir}";
         Restart = "on-failure";
-        RestartSec = 10;
+        RestartSec = 60;
       };
       Install = {
         WantedBy = [ "default.target" ];
@@ -49,6 +51,8 @@ let
         Description = "rclone sync for ${remoteName}:${dir}";
         After = [ "network-online.target" ];
         Wants = [ "network-online.target" ];
+        StartLimitBurst = 5;
+        StartLimitIntervalSec = 300;
       };
       Service = {
         Type = "oneshot";
