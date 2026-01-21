@@ -6,6 +6,8 @@ in {
   programs.git = {
     enable = true;
     ignores = [
+      ".claude"
+      ".vscode"
       ".playground"
     ];
     settings = {
