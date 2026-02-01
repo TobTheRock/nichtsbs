@@ -39,7 +39,7 @@ let
         RestartSec = 60;
       };
       Install = {
-        WantedBy = [ "default.target" ];
+        # WantedBy = [ "default.target" ];
       };
     };
   };
@@ -82,7 +82,7 @@ let
         Persistent = true;
       };
       Install = {
-        WantedBy = [ "timers.target" ];
+        # WantedBy = [ "timers.target" ];
       };
     };
   };
