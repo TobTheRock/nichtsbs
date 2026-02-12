@@ -5,7 +5,7 @@
     hostname = "awesom-o";
     username = "tobi";
     homeDirectory = "/home/" + config.var.username;
-    configDirectory = inputs.self.outPath;
+    configDirectory = config.var.homeDirectory + "/Development/nix/nichtsbs";
 
     keyboardLayout = "us,de";
     keyboardToggle = "grp:alt_shift_toggle";
