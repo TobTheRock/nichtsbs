@@ -84,6 +84,11 @@ pkgs.mkShell {
 
     ${if enableAIFeatures then ''
     # Configure Claude Code MCP servers using CLI
+    # Remove first to ensure paths are updated after nix store changes
+    claude mcp remove filesystem 2>/dev/null || true
+    claude mcp remove git 2>/dev/null || true
+    claude mcp remove sequential-thinking 2>/dev/null || true
+    claude mcp remove rust-analyzer 2>/dev/null || true
     claude mcp add filesystem -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-filesystem}/bin/mcp-server-filesystem . 2>/dev/null || true
     claude mcp add git -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-git}/bin/mcp-server-git 2>/dev/null || true
     claude mcp add sequential-thinking -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking 2>/dev/null || true
