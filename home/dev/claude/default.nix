@@ -25,5 +25,6 @@
     - Always follow TDD. Write a test before implementation or bug fixing to prove your point.
       - When implementing try to define the API first, preferrably by putting it to use first.
     - Always keep the scope of your work commitable, follow one logical change per commit. Do a review before commiting.
+    - Always follow Clean Code, DRY, SOLID and KISS principles.
   '';
 }
