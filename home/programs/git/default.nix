@@ -8,7 +8,7 @@ in {
     ignores = [
       ".claude"
       ".vscode"
-      ".playground"
+      "playground"
     ];
     settings = {
       user.name = username;
