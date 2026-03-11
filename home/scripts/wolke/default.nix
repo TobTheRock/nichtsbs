@@ -62,6 +62,7 @@ let
           "${remoteName}:${dir}"
           "--transfers=1"
           "--checkers=2"
+          "--ignore-errors"
           "--retries=10"
           "--retries-sleep=5s"
           "--low-level-retries=10"
@@ -140,7 +141,7 @@ let
       function rclone_sync(){
         for dir in "''${syncDirs[@]}"; do
           echo "#-- Syncing $dir"
-          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet --transfers=1 --checkers=2 --retries=10 --retries-sleep=5s --low-level-retries=10
+          rclone sync ${rootDir}/$dir ${remoteName}:$dir --progress --stats-one-line --stats=5s --quiet --transfers=1 --checkers=2 --ignore-errors --retries=10 --retries-sleep=5s --low-level-retries=10
         done
       }
 
