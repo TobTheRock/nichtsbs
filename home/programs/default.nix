@@ -17,7 +17,7 @@ let
   # Media tools and image management
   mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol tidal-hifi ];
   # System utilities and CLI tools
-  cliPkgs = with pkgs; [ htop neofetch tmux unzip zip pmutils ];
+  cliPkgs = with pkgs; [ htop fastfetch tmux unzip zip pmutils ];
   # Misc apps
   miscPkgs = with pkgs; [ ];
 

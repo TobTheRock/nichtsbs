@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod,RETURN, exec, ${pkgs.kitty}/bin/kitty" # Kitty
-      "$mod,E, exec, ${pkgs.xfce.thunar}/bin/thunar" # Thunar
+      "$mod,E, exec, ${pkgs.thunar}/bin/thunar" # Thunar
       "$mod,B, exec, ${pkgs.firefox}/bin/firefox" # Firefox
       "$shiftMod,B, exec, ${pkgs.firefox}/bin/firefox --private-window" # Firefox
       #    "$mod,K, exec, ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
