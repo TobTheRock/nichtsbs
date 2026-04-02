@@ -3,7 +3,7 @@ let
   # Browsers and Internet tools
   browserPkgs = with pkgs; [ brave firefox rclone ];
   # Messaging & Communication
-  messagingPkgs = with pkgs; [ signal-desktop discord protonmail-desktop ];
+  messagingPkgs = with pkgs; [ signal-desktop discord protonmail-desktop altus ];
   # Office & PDF Tools
   officePkgs = with pkgs; [
     ausweisapp
