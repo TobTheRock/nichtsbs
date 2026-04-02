@@ -12,14 +12,14 @@ adaptive_sync = false
 
 [[profile.output]]
 enable = false
-search = ["m=0x0A5F", "s=", "v=BOE"]
+search = ["m=0x41B5", "s=", "v=Lenovo Group Limited"]
 
 [[profile]]
 name = "Standalone"
 
 [[profile.output]]
 enable = true
-search = ["m=0x0A5F", "s=", "v=BOE"]
+search = ["m=0x41B5", "s=", "v=Lenovo Group Limited"]
 mode = "1920x1200@60Hz"
 position = "0,0"
 scale = 1.0
@@ -40,7 +40,7 @@ adaptive_sync = false
 
 [[profile.output]]
 enable = false
-search = ["m=0x0A5F", "s=", "v=BOE"]
+search = ["m=0x41B5", "s=", "v=Lenovo Group Limited"]
 mode = "1920x1200@60Hz"
 position = "0,0"
 scale = 1.0
@@ -52,7 +52,7 @@ name = "Office"
 
 [[profile.output]]
 enable = false
-search = ["m=0x0A5F", "s=", "v=BOE"]
+search = ["m=0x41B5", "s=", "v=Lenovo Group Limited"]
 mode = "1920x1200@60Hz"
 position = "0,0"
 scale = 1.0
