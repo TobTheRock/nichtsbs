@@ -1,5 +1,6 @@
 { pkgs
 , mcp-servers-nix
+, system
 , enableAIFeatures ? true  # Set to false to disable MCP servers
 }:
 
@@ -33,7 +34,7 @@ let
 
   # MCP servers for AI-assisted development (Claude Code, Cursor, etc.)
   mcpServers = if enableAIFeatures then
-    (with mcp-servers-nix.packages.${pkgs.system}; [
+    (with mcp-servers-nix.packages.${system}; [
       mcp-server-filesystem  # File operations
       mcp-server-git         # Git operations
       mcp-server-sequential-thinking  # Enhanced reasoning
@@ -89,9 +90,9 @@ pkgs.mkShell {
     claude mcp remove git 2>/dev/null || true
     claude mcp remove sequential-thinking 2>/dev/null || true
     claude mcp remove rust-analyzer 2>/dev/null || true
-    claude mcp add filesystem -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-filesystem}/bin/mcp-server-filesystem . 2>/dev/null || true
-    claude mcp add git -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-git}/bin/mcp-server-git 2>/dev/null || true
-    claude mcp add sequential-thinking -s user -- ${mcp-servers-nix.packages.${pkgs.system}.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking 2>/dev/null || true
+    claude mcp add filesystem -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-filesystem}/bin/mcp-server-filesystem . 2>/dev/null || true
+    claude mcp add git -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-git}/bin/mcp-server-git 2>/dev/null || true
+    claude mcp add sequential-thinking -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking 2>/dev/null || true
     claude mcp add rust-analyzer -s user -- ${rust-analyzer-mcp}/bin/rust-analyzer-mcp 2>/dev/null || true
     '' else ""}
 

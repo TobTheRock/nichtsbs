@@ -19,5 +19,7 @@
     file.".face.icon" = { source = ./profile_picture.png; };
   };
 
+  gtk.gtk4.theme = null;
+
   home.stateVersion = "24.05";
 }

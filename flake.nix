@@ -68,7 +68,7 @@
 
     devShells.${system} = {
       rust = import ./devShells/rust.nix {
-        inherit pkgs;
+        inherit pkgs system;
         inherit (inputs) mcp-servers-nix;
       };
     };
