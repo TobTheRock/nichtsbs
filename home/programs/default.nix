@@ -17,7 +17,7 @@ let
   # Media tools and image management
   mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol tidal-hifi ];
   # System utilities and CLI tools
-  cliPkgs = with pkgs; [ htop fastfetch tmux unzip zip pmutils ];
+  cliPkgs = with pkgs; [ htop fastfetch unzip zip pmutils ];
   # Misc apps
   miscPkgs = with pkgs; [ ];
 
@@ -26,7 +26,7 @@ let
     ++ cliPkgs ++ miscPkgs;
 
 in {
-  imports = [ ./kitty ./fish ./shikane ./git ./ssh ./thunar ];
+  imports = [ ./kitty ./fish ./shikane ./git ./ssh ./thunar ./tmux ];
 
   programs = {
     fzf.enable = true;
