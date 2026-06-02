@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     claude-code
+    # ACP bridge for agentic.nvim
+    claude-code-acp
+    nodejs
     # claude-mem dependencies
     bun
     uv

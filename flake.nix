@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    plugin-agentic = {
+      url = "github:carlos-algms/agentic.nvim";
+      flake = false;
+    };
+
     hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
