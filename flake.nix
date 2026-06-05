@@ -26,6 +26,12 @@
       flake = false;
     };
 
+    # Note: do NOT make claude-desktop follow our nixpkgs. The flake's
+    # derivation references `nodePackages.asar`, which was removed from
+    # nixpkgs on 2026-03-03. Letting it pin its own nixpkgs keeps it
+    # building until the upstream flake is updated.
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+
     hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";

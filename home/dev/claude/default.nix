@@ -1,8 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     claude-code
     # ACP bridge for agentic.nvim
-    claude-code-acp
+    claude-agent-acp
+    # Claude desktop app (k3d3/claude-desktop-linux-flake)
+    inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop
     nodejs
     # claude-mem dependencies
     bun

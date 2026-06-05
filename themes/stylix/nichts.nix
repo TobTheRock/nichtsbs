@@ -68,6 +68,8 @@ in {
 
     polarity = "dark";
     image = wallpaper;
+
+    targets.kmscon.enable = false;
   };
 
 }
