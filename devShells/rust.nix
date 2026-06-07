@@ -1,46 +1,4 @@
-{ pkgs
-, mcp-servers-nix
-, system
-, enableAIFeatures ? true  # Set to false to disable MCP servers
-}:
-
-let
-  # rust-analyzer MCP server for Rust code analysis
-  rust-analyzer-mcp = pkgs.rustPlatform.buildRustPackage rec {
-    pname = "rust-analyzer-mcp";
-    version = "0.2.0";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "zeenix";
-      repo = "rust-analyzer-mcp";
-      rev = "v${version}";
-      hash = "sha256-brnzVDPBB3sfM+5wDw74WGqN5ahtuV4OvaGhnQfDqM0=";
-    };
-
-    cargoHash = "sha256-7t4bjyCcbxFAO/29re7cjoW1ACieeEaM4+QT5QAwc34=";
-
-    # Tests require files not available in the Nix sandbox
-    doCheck = false;
-
-    nativeBuildInputs = [ pkgs.pkg-config ];
-    buildInputs = [ pkgs.openssl ];
-
-    meta = {
-      description = "MCP server providing rust-analyzer integration";
-      homepage = "https://github.com/zeenix/rust-analyzer-mcp";
-      mainProgram = "rust-analyzer-mcp";
-    };
-  };
-
-  # MCP servers for AI-assisted development (Claude Code, Cursor, etc.)
-  mcpServers = if enableAIFeatures then
-    (with mcp-servers-nix.packages.${system}; [
-      mcp-server-filesystem  # File operations
-      mcp-server-git         # Git operations
-      mcp-server-sequential-thinking  # Enhanced reasoning
-    ]) ++ [ rust-analyzer-mcp ]  # Rust code analysis
-  else [ ];
-in
+{ pkgs }:
 
 pkgs.mkShell {
   name = "rust-dev";
@@ -69,9 +27,7 @@ pkgs.mkShell {
     # Common dev dependencies
     pkg-config
     openssl
-
-    # MCP servers for AI-assisted development (Claude Code, etc.)
-  ] ++ mcpServers;
+  ];
 
   shellHook = ''
     export PATH="${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/:$PATH"
@@ -83,19 +39,6 @@ pkgs.mkShell {
     RUST_TOOLCHAIN="${pkgs.fenix.stable.withComponents ["rustc" "rust-std"]}"
     export LD_LIBRARY_PATH="$RUST_TOOLCHAIN/lib:$LD_LIBRARY_PATH"
 
-    ${if enableAIFeatures then ''
-    # Configure Claude Code MCP servers using CLI
-    # Remove first to ensure paths are updated after nix store changes
-    claude mcp remove filesystem 2>/dev/null || true
-    claude mcp remove git 2>/dev/null || true
-    claude mcp remove sequential-thinking 2>/dev/null || true
-    claude mcp remove rust-analyzer 2>/dev/null || true
-    claude mcp add filesystem -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-filesystem}/bin/mcp-server-filesystem . 2>/dev/null || true
-    claude mcp add git -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-git}/bin/mcp-server-git 2>/dev/null || true
-    claude mcp add sequential-thinking -s user -- ${mcp-servers-nix.packages.${system}.mcp-server-sequential-thinking}/bin/mcp-server-sequential-thinking 2>/dev/null || true
-    claude mcp add rust-analyzer -s user -- ${rust-analyzer-mcp}/bin/rust-analyzer-mcp 2>/dev/null || true
-    '' else ""}
-
     # Switch to fish shell while preserving the nix environment
     # Only do this if we're not already in fish (prevents infinite loop)
     if [ -z "$IN_NIX_SHELL_FISH" ]; then
@@ -103,7 +46,6 @@ pkgs.mkShell {
       echo "🦀 Rust development environment"
       echo "rustc: $(rustc --version)"
       echo "cargo: $(cargo --version)"
-      ${if enableAIFeatures then ''echo ""; echo "🤖 AI Features: MCP servers available"'' else ""}
       exec ${pkgs.fish}/bin/fish
     fi
   '';

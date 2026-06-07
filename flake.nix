@@ -49,7 +49,6 @@
     };
     nur.url = "github:nix-community/NUR";
     fenix.url = "github:nix-community/fenix";
-    mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, lanzaboote, stylix, fenix, ... }:
@@ -79,8 +78,7 @@
 
     devShells.${system} = {
       rust = import ./devShells/rust.nix {
-        inherit pkgs system;
-        inherit (inputs) mcp-servers-nix;
+        inherit pkgs;
       };
     };
   };
