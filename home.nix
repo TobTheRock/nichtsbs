@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   imports = [
     ./variables.nix
 
@@ -19,7 +19,7 @@
     file.".face.icon" = { source = ./profile_picture.png; };
   };
 
-  gtk.gtk4.theme = null;
+  gtk.gtk4.theme = lib.mkForce null;
 
   home.stateVersion = "24.05";
 }
