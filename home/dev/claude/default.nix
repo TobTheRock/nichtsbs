@@ -2,9 +2,17 @@
   programs.claude-code = {
     enable = true;
 
-    # Declarative ~/.claude/settings.json. Plugins are still installed
-    # imperatively via the marketplace (they self-update), but their
-    # enablement is pinned here so the active set is reproducible.
+    # Declarative ~/.claude/settings.json.
+    #
+    # Two flavours of plugin live here:
+    #   * Imperative install + pinned enablement — the marketplace was added
+    #     interactively (`/plugin marketplace add ...`) and the plugins
+    #     self-update; only their enablement is pinned below so the active set
+    #     stays reproducible. These are the *-official / superpowers / thedotmack
+    #     entries.
+    #   * Fully declarative — the marketplace is fetched and registered via the
+    #     `marketplaces` option below, so both the source and the enablement are
+    #     pinned in nix. ponytail (ponytail@ponytail) is wired this way.
     settings = {
       model = "opus";
       alwaysThinkingEnabled = true;
@@ -14,7 +22,20 @@
         "typescript-lsp@claude-plugins-official" = true;
         "superpowers@superpowers-marketplace" = true;
         "claude-mem@thedotmack" = true;
+        # DietrichGebert/ponytail — registered declaratively via `marketplaces`.
+        "ponytail@ponytail" = true;
       };
+    };
+
+    # Declaratively registered plugin marketplaces (fetched into the nix store
+    # and written to ~/.claude/plugins/known_marketplaces.json). The attribute
+    # name is the marketplace name, so it must match the `@<marketplace>` suffix
+    # used in `enabledPlugins` above.
+    marketplaces.ponytail = pkgs.fetchFromGitHub {
+      owner = "DietrichGebert";
+      repo = "ponytail";
+      rev = "0403c4dd50ee6d0db2c3ec70b2be6655f9cb65a9";
+      sha256 = "sha256-YoFsjwAoQ4RDqT3dxrlLY2q4jALZPCydvvzKDi7OUwU=";
     };
 
     # Global Claude Code instructions (~/.claude/CLAUDE.md)
