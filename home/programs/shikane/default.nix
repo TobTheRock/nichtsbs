@@ -12,7 +12,9 @@ in {
       Wants = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.shikane}/bin/shikane -c ${shikaneConfig}";
+      # -T debounces output events (ms) so shikane evaluates the settled
+      # topology instead of bailing mid-teardown on the hotplug flood.
+      ExecStart = "${pkgs.shikane}/bin/shikane -T 500 -c ${shikaneConfig}";
       Restart = "always";
       RestartSec = 5;
     };
