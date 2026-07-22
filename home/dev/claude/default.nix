@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, config, ... }: {
   programs.claude-code = {
     enable = true;
 
@@ -58,6 +58,17 @@
       sha256 = "sha256-/yjsbqHocbS36oj3Ny1FB1l2TM7OXDHFYzmGnweFfT4=";
     };
   };
+
+  # Claude Code rewrites known_marketplaces.json at runtime (bumps lastUpdated),
+  # so HM would otherwise back it up to .bck every rebuild and choke when the
+  # .bck already exists. Let HM just overwrite it — the marketplace registration
+  # is what we own; the runtime timestamp is throwaway.
+  # ponytail: force-overwrite one file. Drop the declarative marketplaces.* and
+  # register imperatively if HM ever stops owning this path.
+  # Must match the module's own attribute key exactly (absolute path via
+  # configDir) so .force merges into its entry instead of colliding as a
+  # second managed target for the same file.
+  home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
 
   home.packages = with pkgs; [
     # ACP bridge for agentic.nvim
