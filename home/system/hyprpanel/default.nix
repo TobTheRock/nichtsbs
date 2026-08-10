@@ -1,6 +1,6 @@
 # Hyprpanel is the bar on top of the screen
 # Display information like workspaces, battery, wifi, ...
-{ config, ... }:
+{ config, inputs, pkgs, ... }:
 let
   transparentButtons = config.theme.bar.transparentButtons;
 
@@ -33,6 +33,8 @@ in {
 
   programs.hyprpanel = {
     enable = true;
+    # nixpkgs archived its hyprpanel; use the upstream flake's package
+    package = inputs.hyprpanel.packages.${pkgs.system}.default;
 
     settings = {
       bar.layouts = {
