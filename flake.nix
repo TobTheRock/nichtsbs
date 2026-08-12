@@ -32,11 +32,7 @@
     # building until the upstream flake is updated.
     claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
 
-    # Pinned: 0.56 dropped hyprlang and reads only hyprland.lua, so it ignores
-    # the hyprland.conf home-manager generates and boots into the setup wizard.
-    # nixpkgs is on 0.56 too, so pinning here is the only way back.
-    # Unpin once home/system/hyprland/ is ported to the Lua API (configType = "lua").
-    hyprland.url = "github:hyprwm/Hyprland/v0.55.4?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

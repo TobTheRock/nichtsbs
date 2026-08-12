@@ -29,7 +29,11 @@ let
 
   homeDir = "/home/${config.var.username}";
 in {
-  wayland.windowManager.hyprland.settings.exec-once = [ "hyprpanel" ];
+  wayland.windowManager.hyprland.extraConfig = ''
+    hl.on("hyprland.start", function()
+      hl.exec_cmd("hyprpanel")
+    end)
+  '';
 
   programs.hyprpanel = {
     enable = true;

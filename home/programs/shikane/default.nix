@@ -20,6 +20,9 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland.settings.exec-once =
-    [ "systemctl --user start shikane" ];
+  wayland.windowManager.hyprland.extraConfig = ''
+    hl.on("hyprland.start", function()
+      hl.exec_cmd("systemctl --user start shikane")
+    end)
+  '';
 }
