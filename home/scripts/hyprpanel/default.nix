@@ -37,8 +37,8 @@ let
   '';
 
   hyprpanel-reload = pkgs.writeShellScriptBin "hyprpanel-reload" ''
-    hyprpanel -q
-    hyprctl dispatch exec hyprpanel
+    hyprpanel -q 2>/dev/null || true
+    setsid -f hyprpanel
   '';
 in {
   home.packages =
