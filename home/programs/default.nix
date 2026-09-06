@@ -15,7 +15,7 @@ let
     system-config-printer
   ];
   # Media tools and image management
-  mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol tidal-hifi ];
+  mediaPkgs = with pkgs; [ mpv imv digikam pavucontrol tidal-hifi asunder ];
   # System utilities and CLI tools
   cliPkgs = with pkgs; [ htop fastfetch unzip zip pmutils ];
   # Misc apps
