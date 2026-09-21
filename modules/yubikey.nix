@@ -15,7 +15,7 @@
     cryptsetup
     libfido2
     pam_u2f
-    pinentry-curses
+    pinentry-qt
     yubikey-manager
   ];
 
@@ -23,6 +23,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-qt;
+    settings.default-cache-ttl-ssh = 7200;
   };
 }
