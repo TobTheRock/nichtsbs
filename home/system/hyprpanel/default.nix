@@ -29,6 +29,21 @@ let
 
   homeDir = "/home/${config.var.username}";
 in {
+  # Custom bar modules live in their own file, hyprpanel reads it from there
+  xdg.configFile."hyprpanel/modules.json".text = builtins.toJSON {
+    "custom/vpn" = {
+      icon = {
+        on = "󰦝";
+        off = "󰦞";
+        default = "󰖂";
+      };
+      tooltip = "Proton VPN: {text}";
+      execute = "vpn-status";
+      interval = 15000;
+      actions.onLeftClick = "vpn";
+    };
+  };
+
   wayland.windowManager.hyprland.extraConfig = ''
     hl.on("hyprland.start", function()
       hl.exec_cmd("hyprpanel")
@@ -49,6 +64,7 @@ in {
             "systray"
             "volume"
             "bluetooth"
+            "custom/vpn"
             "battery"
             "kbinput"
             "network"

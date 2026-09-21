@@ -14,5 +14,6 @@
     ./system
     ./schlaf
     ./wolke
+    ./vpn
   ];
 }
