@@ -40,7 +40,8 @@ let
             ${pkgs.hyprlock}/bin/hyprlock
             ;;
           "Logout")
-            hyprctl dispatch exit
+            # lua config: dispatchers are lua exprs, bare names are a parse error
+            hyprctl dispatch "hl.dsp.exit()"
             ;;
           "Suspend")
             systemctl suspend
