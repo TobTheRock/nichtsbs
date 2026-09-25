@@ -76,6 +76,14 @@
       };
     };
 
+    # Neovim only, for machines we don't manage as a whole (macOS).
+    # nix run home-manager -- switch --flake .#tobi@mac
+    homeConfigurations."tobi@mac" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      extraSpecialArgs = { inherit inputs; };
+      modules = [ stylix.homeModules.stylix ./home/mac.nix ];
+    };
+
     devShells.${system} = {
       rust = import ./devShells/rust.nix {
         inherit pkgs;
