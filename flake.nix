@@ -7,9 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim = {
-      # TODO: swap to github:TobTheRock/nvim once pushed
-      url = "git+file:///home/tobi/Development/nix/nvim";
+    nichtsverbessert = {
+      url = "github:TobTheRock/nichtsverbessert";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.stylix.follows = "stylix";
     };

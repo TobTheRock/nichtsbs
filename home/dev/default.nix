@@ -1,5 +1,5 @@
 { config, inputs, pkgs, ... }: {
-  imports = [ ./lazygit inputs.nvim.homeModules.nvim ./claude ];
+  imports = [ ./lazygit inputs.nichtsverbessert.homeModules.nvim ./claude ];
 
   nvim.configDirectory = config.var.configDirectory;
 
