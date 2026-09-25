@@ -9,7 +9,7 @@ in {
     enable = true;
 
     # Edited catppuccin
-    base16Scheme = import ./base16.nix;
+    base16Scheme = inputs.nvim.lib.base16;
 
     cursor = {
       package = pkgs.bibata-cursors;

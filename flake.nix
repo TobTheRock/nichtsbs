@@ -7,23 +7,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nvim = {
+      # TODO: swap to github:TobTheRock/nvim once pushed
+      url = "git+file:///home/tobi/Development/nix/nvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.stylix.follows = "stylix";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    plugin-markdown = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
-
-    plugin-agentic = {
-      url = "github:carlos-algms/agentic.nvim";
-      flake = false;
     };
 
     # Note: do NOT make claude-desktop follow our nixpkgs. The flake's
@@ -74,14 +66,6 @@
           lanzaboote.nixosModules.lanzaboote
         ];
       };
-    };
-
-    # Neovim only, for machines we don't manage as a whole (macOS).
-    # nix run home-manager -- switch --flake .#tobi@mac
-    homeConfigurations."tobi@mac" = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      extraSpecialArgs = { inherit inputs; };
-      modules = [ stylix.homeModules.stylix ./home/mac.nix ];
     };
 
     devShells.${system} = {

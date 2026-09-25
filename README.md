@@ -10,12 +10,18 @@ Basiert auf [Nixy](https://github.com/anotherhadi/nixy)
 sudo nixos-rebuild switch --flake .#awesom-o   # oder: nixy rebuild
 ```
 
-**macOS (Apple Silicon)** — nur die Neovim-Konfiguration, via standalone
-home-manager:
+## Aufgeteilte Repos
+
+| Repo | Inhalt |
+|---|---|
+| `nichtsbs` (hier) | NixOS-System, Desktop, Dotfiles |
+| [`nvim`](https://github.com/TobTheRock/nvim) | die nixvim-Konfiguration + Farbpalette, von beiden Maschinen geteilt |
+| [`mac`](https://github.com/TobTheRock/mac) | macOS, standalone home-manager |
+
+`nvim` wird hier als Flake-Input eingebunden (`inputs.nvim.homeModules.nvim`),
+die Palette kommt über `inputs.nvim.lib.base16` — eine Quelle für beide
+Maschinen. Neovim-Änderungen gehören ins `nvim`-Repo, danach:
 
 ```sh
-nix run home-manager -- switch --flake .#tobi@mac
+nix flake update nvim && nixy rebuild
 ```
-
-Geteilt wird dabei `home/dev/nvim` samt Farbpalette (`themes/stylix/base16.nix`);
-der Rest des Desktops bleibt NixOS-only.
